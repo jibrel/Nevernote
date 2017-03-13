@@ -1,95 +1,91 @@
-Root
+# Component Hierarchy
 
-AuthFormContainer
-	AuthForm
-		Errors
+**Root**
 
-HomeContainer
-	Home
-	Sidebar
-	Toolbar
-	MessageBar
+**AuthFormContainer**
+	- AuthForm
+		+ Errors
 
-NoteDetailContainer
-	Formatbar
-		(NotebookIndex)
-	NoteDetail
+**HomeContainer**
+	- Home
+	- Sidebar
+	- Toolbar
+	- MessageBar
 
-NoteIndexContainer
-	NoteIndexHeader
-	NoteIndex
-		NoteIndexItem
-			NoteDetailContainer
-				Formatbar
-					(NotebookIndex)
-				NoteDetail
+**NoteDetailContainer**
+	- Formatbar
+		+ (NotebookIndex)
+	- NoteDetail
 
-ShortcutIndexContainer
-	ShortcutIndexHeader
-	ShortcutIndex
+**NoteIndexContainer**
+	- NoteIndexHeader
+	- NoteIndex
+		+ NoteIndexItem
+			+ NoteDetailContainer
+				+ Formatbar
+					+ (NotebookIndex)
+				- NoteDetail
 
-NotebookIndexContainer
-	NotebookIndexHeader
-		Search
-	NotebookIndex
-		NotebookIndexItem
+**ShortcutIndexContainer**
+	- ShortcutIndexHeader
+	- ShortcutIndex
 
-TagIndexContainer
-	TagIndexHeader
-		Search
-	TagIndex
-		TagIndexItem
+**NotebookIndexContainer**
+	- NotebookIndexHeader
+		+ Search
+	- NotebookIndex
+		+ NotebookIndexItem
 
-NewNoteFormContainer
-	Formatbar
-		(NotebookIndex)
-	NewNoteForm
+**TagIndexContainer**
+	- TagIndexHeader
+		+ Search
+	- TagIndex
+		+ TagIndexItem
 
-NewNotebookFormContainer
-	NewNotebookForm
+**NewNoteFormContainer**
+	- Formatbar
+		+ (NotebookIndex)
+	- NewNoteForm
 
-NewTagFormContainer
-	NewTagForm
+**NewNotebookFormContainer**
+	- NewNotebookForm
 
-SearchPageContainer
-	SearchPage
-		SearchSelect
+**NewTagFormContainer**
+	- NewTagForm
 
-SearchResultsContainer
-	SearchResultsHeader
-	NoteIndex
-		NoteIndexItem
-			NoteDetailContainer
-				Formatbar
-					(NotebookIndex)
-				NoteDetail
+**SearchPageContainer**
+	- SearchPage
+		+ SearchSelect
 
-DeleteConfirmation
+**SearchResultsContainer**
+	- SearchResultsHeader
+	- NoteIndex
+		+ NoteIndexItem
+			+ NoteDetailContainer
+				+ Formatbar
+					+ (NotebookIndex)
+				- NoteDetail
+
+**DeleteConfirmation**
 
 
-Routes:
+# Routes
 
-/ --> Root
+|Path                           | Component                |
+|-------------------------------|--------------------------|
+| /                             | Root                     |
+| /signup                       | AuthFormContainer        |
+| /login                        | AuthFormContainer        |
+| /home                         | HomeContainer            |
+| /home/note/:noteId            | NoteIndexContainer       |
+| /home/note/:noteId/fullscreen | NoteDetailContainer      |
+| /new-note                     | NewNoteFormContainer     |
+| /new-notebook                 | NewNotebookFormContainer |
+| /new-tag                      | NewTagFormContainer      |
+| /search                       | SearchPageContainer      |
+| /home/search-results          | SearchResultsContainer   |
 
-/signup	--> AuthFormContainer
 
-/login --> AuthFormContainer
-
-/home --> HomeContainer
-
-/home/note/:noteId --> NoteIndexContainer
-
-/home/note/:noteId/fullscreen --> NoteDetailContainer
-
-/new-note --> NewNoteFormContainer
-
-/new-notebook --> NewNotebookFormContainer
-
-/new-tag --> NewTagFormContainer
-
-/search --> SearchPageContainer
-
-/home/search-results --> SearchResultsContainer
 
 
 
