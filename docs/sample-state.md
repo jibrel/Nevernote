@@ -1,9 +1,11 @@
+# Sample State
+
+```js
 {
 	currentUser: {
 		id: 1, 
 		username: "Claire"
 	},
-
 	forms: {
 		signup: {errors: []},
 		login: {errors: []},
@@ -13,9 +15,8 @@
 		},
 		newTag: {
 			errors: ["A tag named Cats already exists."],
-			messages: ["Tag Horses created."]}
+			messages: ["Tag Horses created."]
 	},
-
 	notes: {
 		1: {
 			title: "Javascript",
@@ -30,13 +31,12 @@
 			}
 		}
 	}, 
-
 	notebooks: {
 		1: {
 			title: "App Academy",
 			author_id: 1
 		}
 	},
-
 	tagFilters: []
 }
+```
