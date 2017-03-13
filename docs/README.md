@@ -1,8 +1,9 @@
 ## Heroku and Trello Links:
 
-[Heroku]:[heroku]
-[Trello]:[trello]
+[Heroku][heroku]
+[Trello][trello]
 
+[heroku]: 
 [trello]: https://trello.com/b/zBj9OpDv/claire-s-evernote-clone
 
 
@@ -26,6 +27,12 @@ This project is a faithful clone of the web version of Evernote, with the follow
 [API Endpoints]:[api-endpoints]
 [DB Schema]:[schema]
 [Sample State]:[sample-state]
+
+[wireframes]: docs/wireframes
+[components]: docs/component-hierarchy.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
+[sample-state]: docs/sample-state.md
 
 
 ## Implementation Timeline:
