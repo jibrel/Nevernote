@@ -1,11 +1,15 @@
-| Users            | validations   						  | index | datatype |
+## Users:
+
+| columns          | validations   						  | index | datatype |
 |------------------|----------------------------|-------|----------|
 | :username				 | null: false, unique: true  | index | string   |
 | :session_token	 | null: false						  	|	index |	string   |
 |	:password_digest | null: false						  	|				|	string   |
 
 
-| Notes 			 | validations								| index | datatype |
+## Notes:
+
+| columns 		 | validations								| index | datatype |
 |--------------|----------------------------|-------|----------|
 |	:title 			 | null: false              	|	index | string   |
 |	:body 			 |														|				|	text     |
@@ -13,18 +17,24 @@
 |	:notebook_id |														|	index | integer  |
 
 
-| Notebooks	 | validations               | index | datatype |
+## Notebooks:
+
+| columns 	 | validations               | index | datatype |
 |------------|---------------------------|-------|----------|
 |	:title  	 | null: false, unique: true | index | string   |
-|	:author_id | null: false 								 index | integer  |
+|	:author_id | null: false 							 | index | integer  |
 
 
-| Tags  | validations               | index | datatype |
-|-------|---------------------------|-------|----------|
-| :name | null: false, unique: true	|	index | string   |
+## Tags:
+
+| columns | validations               | index | datatype |
+|---------|---------------------------|-------|----------|
+| :name   | null: false, unique: true	|	index | string   |
 
 
-| Taggings | validations | index | datatype |
+## Taggings:
+
+| columns  | validations | index | datatype |
 |----------|-------------|-------|----------|
 |	:tag_id  | null: false | index | integer  |
 |	:note_id | null: false | index | integer  |

@@ -79,7 +79,7 @@ Routes:
 
 /home/note/:noteId --> NoteIndexContainer
 
-/home/note/:noteId/full --> NoteDetailContainer
+/home/note/:noteId/fullscreen --> NoteDetailContainer
 
 /new-note --> NewNoteFormContainer
 
