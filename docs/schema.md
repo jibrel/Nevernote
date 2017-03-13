@@ -1,20 +1,30 @@
-users
-	:username				 null: false, unique: true  	index 	string
-  :session_token	 null: false									index 	string
-	:password_digest null: false													string
+| Users                    										                   |
+|------------------|----------------------------|-------|--------|
+| :username				 | null: false, unique: true  | index | string |
+| :session_token	 | null: false						  	|	index |	string |
+|	:password_digest | null: false						  	|				|	string |
 
-notes
-	:title 					 null: false, unique: true		index   string
-	:body 					 																			text
-	:notebook_id 																	index   integer
-	:tagging_id																		index   integer
 
-notebooks
-	:title  				 null: false, unique: true		index   string
+| Notes 																											|
+|--------------|----------------------------|-------|---------|
+|	:title 			 | null: false              	|	index | string  |
+|	:body 			 |														|				|	text    |
+|	:author_id   | null: false								|	index | integer |
+|	:notebook_id |														|	index | integer |
 
-tags
-	:name 				   null: false, unique: true		index   string
 
-taggings
-	:tag_id  				 null: false 								  index
-	:note_id 				 null: false								  index
+| Notebooks																								 |
+|------------|---------------------------|-------|---------|
+|	:title  	 | null: false, unique: true | index | string  |
+|	:author_id | null: false 								 index | integer |
+
+
+| Tags 																							 |
+|-------|---------------------------|-------|--------|
+| :name | null: false, unique: true	|	index | string |
+
+
+| Taggings																 |
+|----------|-------------|-------|---------|
+|	:tag_id  | null: false | index | integer |
+|	:note_id | null: false | index | integer |

@@ -1,17 +1,16 @@
 Root
-	Header
 
 AuthFormContainer
 	AuthForm
+		Errors
 
 HomeContainer
 	Home
 	Sidebar
-
-MessageBar
+	Toolbar
+	MessageBar
 
 NoteDetailContainer
-	Toolbar
 	Formatbar
 		(NotebookIndex)
 	NoteDetail
@@ -21,7 +20,6 @@ NoteIndexContainer
 	NoteIndex
 		NoteIndexItem
 			NoteDetailContainer
-				Toolbar
 				Formatbar
 					(NotebookIndex)
 				NoteDetail
@@ -40,8 +38,11 @@ TagIndexContainer
 	TagIndexHeader
 		Search
 	TagIndex
+		TagIndexItem
 
 NewNoteFormContainer
+	Formatbar
+		(NotebookIndex)
 	NewNoteForm
 
 NewNotebookFormContainer
@@ -55,11 +56,10 @@ SearchPageContainer
 		SearchSelect
 
 SearchResultsContainer
-	SearchResultHeader
-	NotesIndex
-		NotesIndexItem
+	SearchResultsHeader
+	NoteIndex
+		NoteIndexItem
 			NoteDetailContainer
-				Toolbar
 				Formatbar
 					(NotebookIndex)
 				NoteDetail
@@ -77,7 +77,9 @@ Routes:
 
 /home --> HomeContainer
 
-/home/note/:noteId --> NoteIndexContainer or NoteDetailContainer
+/home/note/:noteId --> NoteIndexContainer
+
+/home/note/:noteId/full --> NoteDetailContainer
 
 /new-note --> NewNoteFormContainer
 
