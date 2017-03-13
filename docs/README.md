@@ -28,11 +28,11 @@ This project is a faithful clone of the web version of Evernote, with the follow
 - [DB Schema][schema]
 - [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
-[sample-state]: docs/sample-state.md
+[wireframes]: ./wireframes
+[components]: ./component-hierarchy.md
+[api-endpoints]: ./api-endpoints.md
+[schema]: ./schema.md
+[sample-state]: ./sample-state.md
 
 
 ## Implementation Timeline:
