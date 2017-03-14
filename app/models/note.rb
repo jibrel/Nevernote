@@ -12,4 +12,20 @@
 #
 
 class Note < ApplicationRecord
+  validates :title, presence: true
+  validates :body
+  validates :author, presence: true
+  validates :notebook
+
+  belongs_to :notebook
+
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: User
+
+  has_many :taggings
+
+  has_many :tags,
+    through: :taggings,
+    source: :tag
 end

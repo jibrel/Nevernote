@@ -10,4 +10,9 @@
 #
 
 class Tagging < ApplicationRecord
+  validates :tag, presence: true
+  validates :note, presence: true
+
+  belongs_to :tag
+  belongs_to :note
 end

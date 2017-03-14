@@ -20,6 +20,13 @@ class User < ApplicationRecord
 
 	before_validation :ensure_session_token
 
+  has_many :notes
+  has_many :notebooks
+
+  has_many :tags,
+    through: :notes,
+    source: :tags
+
 	def self.find_by_credentials(username, pw)
 		user = User.find_by_username(username)
 		return user if user && user.is_password?(pw)
