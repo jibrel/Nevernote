@@ -3,68 +3,68 @@
 **Root**
 
 **AuthFormContainer**
-	- AuthForm
-		+ Errors
+- AuthForm
+	+ Errors
 
 **HomeContainer**
-	- Home
-	- Sidebar
-	- Toolbar
-	- MessageBar
+- Home
+- Sidebar
+- Toolbar
+- MessageBar
 
 **NoteDetailContainer**
-	- Formatbar
-		+ (NotebookIndex)
-	- NoteDetail
+- Formatbar
+	+ (NotebookIndex)
+- NoteDetail
 
 **NoteIndexContainer**
-	- NoteIndexHeader
-	- NoteIndex
-		+ NoteIndexItem
-			- NoteDetailContainer
-				+ Formatbar
-					- (NotebookIndex)
-				+ NoteDetail
+- NoteIndexHeader
+- NoteIndex
+	+ NoteIndexItem
+		- NoteDetailContainer
+			+ Formatbar
+				- (NotebookIndex)
+			+ NoteDetail
 
 **ShortcutIndexContainer**
-	- ShortcutIndexHeader
-	- ShortcutIndex
+- ShortcutIndexHeader
+- ShortcutIndex
 
 **NotebookIndexContainer**
-	- NotebookIndexHeader
-		+ Search
-	- NotebookIndex
-		+ NotebookIndexItem
+- NotebookIndexHeader
+	+ Search
+- NotebookIndex
+	+ NotebookIndexItem
 
 **TagIndexContainer**
-	- TagIndexHeader
-		+ Search
-	- TagIndex
-		+ TagIndexItem
+- TagIndexHeader
+	+ Search
+- TagIndex
+	+ TagIndexItem
 
 **NewNoteFormContainer**
-	- Formatbar
-		+ (NotebookIndex)
-	- NewNoteForm
+- Formatbar
+	+ (NotebookIndex)
+- NewNoteForm
 
 **NewNotebookFormContainer**
-	- NewNotebookForm
+- NewNotebookForm
 
 **NewTagFormContainer**
-	- NewTagForm
+- NewTagForm
 
 **SearchPageContainer**
-	- SearchPage
-		+ SearchSelect
+- SearchPage
+	+ SearchSelect
 
 **SearchResultsContainer**
-	- SearchResultsHeader
-	- NoteIndex
-		+ NoteIndexItem
-			- NoteDetailContainer
-				+ Formatbar
-					- (NotebookIndex)
-				+ NoteDetail
+- SearchResultsHeader
+- NoteIndex
+	+ NoteIndexItem
+		- NoteDetailContainer
+			+ Formatbar
+				- (NotebookIndex)
+			+ NoteDetail
 
 **DeleteConfirmation**
 
