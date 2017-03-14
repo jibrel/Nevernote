@@ -3,20 +3,19 @@
 ```js
 {
 	currentUser: {
-		id: 1, 
+		id: 1,
 		username: "Claire"
 	},
-	forms: {
-		signup: {errors: []},
-		login: {errors: []},
-		newNotebook: {
-			errors: ["A notebook named Dogs already exists."],
-			messages: ["Notebook Whales created."]
-		},
-		newTag: {
-			errors: ["A tag named Cats already exists."],
-			messages: ["Tag Horses created."]
+	errors: {
+		signup: [],
+		login: [],
+		newNotebook: ["A notebook named Dogs already exists."],
+		newTag: ["A tag named Cats already exists."]
 	},
+	messages: {
+		newNotebook: ["Notebook Whales created"],
+		newTag: ["Tag Horses created."]
+	}
 	notes: {
 		1: {
 			title: "Javascript",
@@ -30,7 +29,7 @@
 				}
 			}
 		}
-	}, 
+	},
 	notebooks: {
 		1: {
 			title: "App Academy",
