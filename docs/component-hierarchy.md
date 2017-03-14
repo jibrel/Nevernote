@@ -21,10 +21,10 @@
 	- NoteIndexHeader
 	- NoteIndex
 		+ NoteIndexItem
-			+ NoteDetailContainer
+			- NoteDetailContainer
 				+ Formatbar
-					+ (NotebookIndex)
-				- NoteDetail
+					- (NotebookIndex)
+				+ NoteDetail
 
 **ShortcutIndexContainer**
 	- ShortcutIndexHeader
@@ -61,10 +61,10 @@
 	- SearchResultsHeader
 	- NoteIndex
 		+ NoteIndexItem
-			+ NoteDetailContainer
+			- NoteDetailContainer
 				+ Formatbar
-					+ (NotebookIndex)
-				- NoteDetail
+					- (NotebookIndex)
+				+ NoteDetail
 
 **DeleteConfirmation**
 
