@@ -8,8 +8,8 @@ class CreateNotes < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index: :notes, :title
-    add_index: :notes, :author_id
-    add_index: :notes, :notebook_id
+    add_index :notes, :title, unique: true
+    add_index :notes, :author_id
+    add_index :notes, :notebook_id
   end
 end
