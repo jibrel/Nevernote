@@ -1,0 +1,34 @@
+.auth {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.auth h2, p, link {
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+  margin: inherit;
+  border: 1px lightgrey solid;
+  padding: 30px;
+}
+
+.auth-input {
+  width: 90%;
+  border: 1px lightgrey solid;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.auth-button {
+  width: 90%;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  background: #2DBE60;
+  color: white;
+}

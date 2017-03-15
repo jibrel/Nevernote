@@ -16,7 +16,7 @@ const Root = ({ store }) => {
   const redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().currentUser.username;
     if (currentUser) {
-      replace("/");  // change to "/home"
+      replace("/");
     }
   };
 
