@@ -24,7 +24,13 @@
   background-color: $white;
 }
 
-.auth-input {
+.demo-button {
+  text-align: center;
+  color: $dark-grey;
+  margin-bottom: 30px;
+}
+
+.auth-input, .demo-button {
   width: 90%;
   border: 1px $lightest-grey solid;
   border-radius: 6px;
@@ -63,7 +69,7 @@
   background: $pink;
   margin-bottom: 15px;
   width: 96%;
-  border: 1px solid $dark-red;
+  border: 1px solid $light-red;
   border-top: none;
   box-sizing: border-box;
 }

@@ -8,6 +8,7 @@ class AuthForm extends React.Component {
       username: "",
       password: ""
     }
+    this.handleDemo = this.handleDemo.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -26,6 +27,15 @@ class AuthForm extends React.Component {
 			[field]: e.currentTarget.value
 		});
 	}
+
+  handleDemo(e) {
+    this.setState({
+      username: "DemoUser",
+      password: "password123"
+    }, () => {
+      setTimeout(() => this.handleSubmit(e), 2000)
+    });
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -56,6 +66,7 @@ class AuthForm extends React.Component {
       <div className="auth">
         <h2 className="auth-header">{ header }</h2>
         <form onSubmit={ this.handleSubmit } className="auth-form">
+          <button onClick={ this.handleDemo } className="demo-button">Sign in as Guest</button>
           <input onChange={ this.update("username") } className="auth-input" type="text" placeholder={ usernamePlaceholder } value={ this.state.username }></input>
           { this.renderErrors() }
           <input onChange={ this.update("password") } className="auth-input" type="password" placeholder={ pwPlaceholder } value={ this.state.password }></input>
