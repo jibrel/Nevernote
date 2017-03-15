@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import AuthHeader from './auth_header.jsx';
+
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +12,16 @@ class AuthForm extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidUpdate() {
+		this.redirectIfLoggedIn();
+	}
+
+  redirectIfLoggedIn() {
+		if (this.props.loggedIn) {
+			this.props.router.push("/"); // change to "/home"
+		}
+	}
 
   update(field) {
 		return e => this.setState({
@@ -24,12 +36,19 @@ class AuthForm extends React.Component {
   }
 
   render() {
+    const usernamePlaceholder = "Your username";
+    const pwPlaceholder = (this.props.formType === "signup") ? "Create a password" : "Password";
+    const buttonText = (this.props.formType === "signup") ? "Create Account" : "Sign in";
+
     return (
-      <form onSubmit={ this.handleSubmit }>
-        <input onChange={ this.update("username") } type="text" value={ this.state.username }></input>
-        <input onChange={ this.update("password") } type="password" value={ this.state.password }></input>
-        <input type="submit" value="Submit"></input>
-      </form>
+      <div>
+        <AuthHeader props={ this.props.formType }/>
+        <form onSubmit={ this.handleSubmit } className="auth-form">
+          <input onChange={ this.update("username") } className="auth-input" type="text" placeholder={ usernamePlaceholder } value={ this.state.username }></input>
+          <input onChange={ this.update("password") } className="auth-input" type="password" placeholder={ pwPlaceholder } value={ this.state.password }></input>
+          <input type="submit" value={ buttonText }></input>
+        </form>
+      </div>
     );
   }
 }
