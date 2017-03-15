@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 
-.auth h2, p, link {
+.auth h2, p {
   text-align: center;
 }
 
@@ -22,6 +22,11 @@
   border: 1px lightgrey solid;
   border-radius: 6px;
   padding: 10px;
+}
+
+.auth-errors {
+  background: $pink;
+  color: #B92219;
 }
 
 .auth-button {

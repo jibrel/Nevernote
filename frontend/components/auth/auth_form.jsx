@@ -8,7 +8,6 @@ class AuthForm extends React.Component {
       username: "",
       password: ""
     }
-    this.newUser = (this.props.formType === "signup");
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -34,20 +33,31 @@ class AuthForm extends React.Component {
     this.props.processForm({ user });
   }
 
+  renderErrors() {
+    return (
+      <div className="auth-errors">
+        <p>{ this.props.errors[this.props.formType].responseText }</p>
+      </div>
+    )
+  }
+
   render() {
-    const header = (this.newUser) ? "Create Account" : "Sign in";
+    const newUser = (this.props.formType === "signup");
+
+    const header = (newUser) ? "Create Account" : "Sign in";
     const usernamePlaceholder = "Your username";
-    const pwPlaceholder = (this.newUser) ? "Create a password" : "Password";
-    const buttonText = (this.newUser) ? "Create Account" : "Sign in";
-    const question = (this.newUser) ? "Already have an account?" : "Don't have an account?";
-    const navLink = (this.newUser) ? "/login" : "/signup";
-    const linkText = (this.newUser) ? "Sign in" : "Create Account";
+    const pwPlaceholder = (newUser) ? "Create a password" : "Password";
+    const buttonText = (newUser) ? "Create Account" : "Sign in";
+    const question = (newUser) ? "Already have an account?" : "Don't have an account?";
+    const navLink = (newUser) ? "/login" : "/signup";
+    const linkText = (newUser) ? "Sign in" : "Create Account";
 
     return (
       <div className="auth">
         <h2 className="auth-header">{ header }</h2>
         <form onSubmit={ this.handleSubmit } className="auth-form">
           <input onChange={ this.update("username") } className="auth-input" type="text" placeholder={ usernamePlaceholder } value={ this.state.username }></input>
+          { this.renderErrors() }
           <input onChange={ this.update("password") } className="auth-input" type="password" placeholder={ pwPlaceholder } value={ this.state.password }></input>
           <input className="auth-button" type="submit" value={ buttonText }></input>
         </form>
