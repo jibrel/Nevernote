@@ -2,7 +2,7 @@ import React from 'react';
 
 const App = ({ children }) => (
   <div>
-    <h1>NeverNote</h1>
+    <div className="green-bar"></div>
     { children }
   </div>
 );

@@ -17,7 +17,7 @@ class AuthForm extends React.Component {
 
   redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
-			this.props.router.push("/");
+			this.props.router.push("/home");
 		}
 	}
 
@@ -36,7 +36,7 @@ class AuthForm extends React.Component {
   renderErrors() {
     return (
       <div className="auth-errors">
-        <p>{ this.props.errors[this.props.formType].responseText }</p>
+        <p>{ this.props.errors[this.props.formType][0] }</p>
       </div>
     )
   }
@@ -62,7 +62,7 @@ class AuthForm extends React.Component {
           <input className="auth-button" type="submit" value={ buttonText }></input>
         </form>
         <p>{ question }</p>
-        <Link to={ navLink }>{ linkText }</Link>
+        <Link to={ navLink } className="auth-link">{ linkText }</Link>
       </div>
     );
   }

@@ -11,17 +11,17 @@ export const receiveCurrentUser = currentUser => ({
 export const signup = user => dispatch => (
 	APIUtil.signup(user)
 		.then(currentUser => dispatch(receiveCurrentUser(currentUser)))
-		.fail(errors => dispatch(receiveErrors(errors, "signup")))
+		.fail(errors => dispatch(receiveErrors(errors.responseJSON, "signup")))
 );
 
 export const login = user => dispatch => (
 	APIUtil.login(user)
 		.then(currentUser => dispatch(receiveCurrentUser(currentUser)))
-		.fail(errors => dispatch(receiveErrors(errors, "login")))
+		.fail(errors => dispatch(receiveErrors(errors.responseJSON, "login")))
 );
 
 export const logout = () => dispatch => (
 	APIUtil.logout()
 		.then(() => dispatch(receiveCurrentUser(null)))
-		.fail(errors => dispatch(receiveErrors(errors, "logout")))
+		.fail(errors => dispatch(receiveErrors(errors.responseJSON, "logout")))
 );
