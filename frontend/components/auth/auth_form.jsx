@@ -29,11 +29,12 @@ class AuthForm extends React.Component {
 	}
 
   handleDemo(e) {
+    e.preventDefault();
     this.setState({
       username: "DemoUser",
       password: "password123"
     }, () => {
-      setTimeout(() => this.handleSubmit(e), 2000)
+      setTimeout(() => this.props.login({ user: this.state }), 500)
     });
   }
 
@@ -44,11 +45,16 @@ class AuthForm extends React.Component {
   }
 
   renderErrors() {
-    return (
-      <div className="auth-errors">
-        <p>{ this.props.errors[this.props.formType][0] }</p>
-      </div>
-    )
+    if (this.props.errors[this.props.formType][0]) {
+      return (
+        <div className="auth-errors">
+          <p>{ this.props.errors[this.props.formType][0] }</p>
+        </div>
+      );
+    }
+    else {
+      return undefined;
+    }
   }
 
   render() {

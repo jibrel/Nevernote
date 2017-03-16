@@ -2,7 +2,6 @@
   width: 350px;
   margin: 0 auto;
   font-family: $sans-serif;
-
 }
 
 .auth-header {
@@ -24,17 +23,18 @@
   background-color: $white;
 }
 
-.demo-button {
-  text-align: center;
-  color: $dark-grey;
-  margin-bottom: 30px;
-}
-
-.auth-input, .demo-button {
+.demo-button, .auth-input {
   width: 90%;
   border: 1px $lightest-grey solid;
   border-radius: 6px;
   padding: 10px;
+  margin-top: 12px;
+}
+
+.demo-button {
+  text-align: center;
+  color: $dark-grey;
+  margin-bottom: 30px;
 }
 
 .auth-input:focus {
@@ -67,7 +67,6 @@
 
 .auth-errors {
   background: $pink;
-  margin-bottom: 15px;
   width: 96%;
   border: 1px solid $light-red;
   border-top: none;

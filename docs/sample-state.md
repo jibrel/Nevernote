@@ -18,6 +18,7 @@
 	}
 	notes: {
 		1: {
+			id: 1,
 			title: "Javascript",
 			body: "Not sure how this is going to store text formatting...",
 			author_id: 1,
