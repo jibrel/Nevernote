@@ -20,7 +20,7 @@
 
 - `POST /api/notes`
 - `GET /api/notes`
-	+ accepts query params to list by tag or notebook
+	+ can be filtered by notebook or tag on the frontend
 - `GET /api/notes/:id`
 - `PATCH /api/notes/:id`
 - `DELETE /api/notes/:id`

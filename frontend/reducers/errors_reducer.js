@@ -6,8 +6,7 @@ import { RECEIVE_ERRORS } from '../actions/errors_actions.js';
 const nullErrors = Object.freeze({
   signup: [],
   login: [],
-  newNotebook: [],
-  newTag: []
+  main: []
 });
 
 const errorsReducer = (state = nullErrors, action) => {
@@ -16,6 +15,7 @@ const errorsReducer = (state = nullErrors, action) => {
   switch(action.type) {
     case RECEIVE_ERRORS:
       newState[action.formName] = action.errors
+      console.log(action.errors) // REMOVE LATER!!!
       return newState;
     default:
       return state;

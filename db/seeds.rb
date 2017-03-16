@@ -11,4 +11,31 @@ demo_user = {
   password: "password123"
 }
 
+claire = {
+  username: "Claire",
+  password: "asdfjkl;"
+}
+
+programming = {
+  title: "Programming",
+  author_id: 2
+}
+
+javascript = {
+  title: "JavaScript",
+  body: "—> Node = JS on backend —> node script.js
+—> MDN = Mozilla Developer Network (docs)
+—> almost the same as JScript (ECMAScript standardizes both)
+—> vanilla = w/out any external libraries
+—> ‘use strict’ = ensures no global variables
+—> MEAN stack = MongoDB, Express, Angular, Node",
+  author_id: 2,
+  notebook_id: 1
+}
+
 User.create!(demo_user);
+User.create!(claire);
+
+Notebook.create!(programming);
+
+Note.create!(javascript);

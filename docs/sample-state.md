@@ -9,8 +9,7 @@
 	errors: {
 		signup: [],
 		login: [],
-		newNotebook: ["A notebook named Dogs already exists."],
-		newTag: ["A tag named Cats already exists."]
+		main: ["A tag named Cats already exists."]
 	},
 	messages: {
 		newNotebook: ["Notebook Whales created"],
