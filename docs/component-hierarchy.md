@@ -8,23 +8,35 @@
 
 **HomeContainer**
 - Home
-- Sidebar
-- Toolbar
-- MessageBar
+ 	+ Sidebar
+	+ NoteIndexContainer
+		- NoteIndex
+			+ NoteIndexHeader
+			+ NoteIndexItem
+	+ NoteDetailContainer
+		- Toolbar
+		- Formatbar
+			+ (NotebookIndex)
+		- MessageBar
+		- NoteDetail
+
+**NoteIndexContainer**
+- NoteIndex
+	+ NoteIndexHeader
+	+ NoteIndexItem
 
 **NoteDetailContainer**
+- Toolbar
+- Formatbar
+	+ (NotebookIndex)
+- MessageBar
+- NoteDetail
+
+**NoteEditContainer**
+- Sidebar
 - Formatbar
 	+ (NotebookIndex)
 - NoteDetail
-
-**NoteIndexContainer**
-- NoteIndexHeader
-- NoteIndex
-	+ NoteIndexItem
-		- NoteDetailContainer
-			+ Formatbar
-				- (NotebookIndex)
-			+ NoteDetail
 
 **ShortcutIndexContainer**
 - ShortcutIndexHeader
@@ -77,18 +89,10 @@
 | /signup                       | AuthFormContainer        |
 | /login                        | AuthFormContainer        |
 | /home                         | HomeContainer            |
-| /home/note/:noteId            | NoteIndexContainer       |
-| /home/note/:noteId/fullscreen | NoteDetailContainer      |
+| /home/note/:noteId            | NoteDetailContainer      |
+| /note/:noteId/edit            | NoteEditContainer        |
 | /new-note                     | NewNoteFormContainer     |
 | /new-notebook                 | NewNotebookFormContainer |
 | /new-tag                      | NewTagFormContainer      |
 | /search                       | SearchPageContainer      |
 | /home/search-results          | SearchResultsContainer   |
-
-
-
-
-
-
-
-

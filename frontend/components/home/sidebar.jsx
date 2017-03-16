@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Sidebar = (props) => (
-  <aside>
+  <aside className="sidebar">
     <nav>
       <div className="nav-circle"><i className="fa fa-plus" aria-hidden="true"></i></div>
       <div className="nav-circle"><i className="fa fa-search" aria-hidden="true"></i></div>
@@ -18,5 +18,3 @@ const Sidebar = (props) => (
 )
 
 export default Sidebar;
-
-// <i class="fa fa-file-text-o" aria-hidden="true"></i>

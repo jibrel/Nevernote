@@ -1,0 +1,23 @@
+.note-index {
+  width: 350px;
+  height: 100%;
+  position: fixed;
+  margin-left: 76px;
+  border-right: 1px $lightest-grey solid;
+}
+
+.note-index-header {
+  font-family: $sans-serif;
+  background-color: $white;
+  color: $medium-grey;
+}
+
+.note-index-header h3 {
+  margin: 0;
+  padding: 20px;
+  font-weight: lighter;
+}
+
+.note-index-header p {
+  padding: 10px 20px;
+}

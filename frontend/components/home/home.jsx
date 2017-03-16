@@ -1,14 +1,12 @@
 import React from 'react';
 
 import Sidebar from './sidebar.jsx';
-// import Toolbar from './toolbar.jsx';
-// import Messagebar from './message_bar.jsx';
+import NoteIndexContainer from '../note_index/note_index_container.js';
 
 const Home = (props) => (
   <div>
-    <p>Working so far!</p>
-    <p>Current User: { props.currentUser.username }</p>
     <Sidebar />
+    <NoteIndexContainer />
   </div>
 )
 
