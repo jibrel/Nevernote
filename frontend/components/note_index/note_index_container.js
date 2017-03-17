@@ -5,8 +5,7 @@ import { fetchAllNotes, deleteNote } from '../../actions/notes_actions.js';
 
 const mapStateToProps = (state) => ({
   currentUser: state.currentUser,
-  notes: state.notes,
-  tagFilters: state.tagFilters
+  notes: state.notes
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

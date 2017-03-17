@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 
 import Home from './home.jsx';
 
-const mapStateToProps = ({ currentUser }) => ({
-  currentUser
+const mapStateToProps = (state) => ({
+  currentUser: state.current_user
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => {

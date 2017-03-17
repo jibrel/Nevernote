@@ -10,11 +10,11 @@ class NoteIndex extends React.Component {
 
   render() {
     const note_keys = Object.keys(this.props.notes);
-    const note_items = note_keys.map(key => <NoteIndexItem key={ key } note={ this.props.notes[key] } />)
+    const note_items = note_keys.map(key => <NoteIndexItem key={ key } note={ this.props.notes[key] } />);
 
     return (
       <section className="note-index">
-        <NoteIndexHeader />
+        <NoteIndexHeader count={ note_keys.length }/>
         <ul className="note-index-scroll">
           { note_items }
         </ul>

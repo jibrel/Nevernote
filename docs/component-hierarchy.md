@@ -14,11 +14,11 @@
 			+ NoteIndexHeader
 			+ NoteIndexItem
 	+ NoteDetailContainer
-		- Toolbar
-		- Formatbar
-			+ (NotebookIndex)
-		- MessageBar
 		- NoteDetail
+			+ Toolbar
+			+ Formatbar
+				- (NotebookIndex)
+			+ MessageBar
 
 **NoteIndexContainer**
 - NoteIndex
@@ -26,11 +26,11 @@
 	+ NoteIndexItem
 
 **NoteDetailContainer**
-- Toolbar
-- Formatbar
-	+ (NotebookIndex)
-- MessageBar
 - NoteDetail
+	+ Toolbar
+	+ Formatbar
+		- (NotebookIndex)
+	+ MessageBar
 
 **NoteEditContainer**
 - Sidebar

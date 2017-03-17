@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const NoteIndexItem = ({ note }) => {
-  const snipit = note.body.slice(0, 100);
+  const snipit = note.body.slice(0, 125);
 
   const tools = (
     <nav className="note-index-tools">
