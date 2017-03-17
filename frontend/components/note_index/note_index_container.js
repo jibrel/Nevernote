@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import NoteIndex from './note_index.jsx';
 import { fetchAllNotes, deleteNote } from '../../actions/notes_actions.js';
@@ -13,4 +14,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   deleteNote: noteId => dispatch(deleteNote(noteId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NoteIndex));

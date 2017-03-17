@@ -4,7 +4,6 @@
 
 **AuthFormContainer**
 - AuthForm
-	+ Errors
 
 **HomeContainer**
 - Home
@@ -13,12 +12,6 @@
 		- NoteIndex
 			+ NoteIndexHeader
 			+ NoteIndexItem
-	+ NoteDetailContainer
-		- NoteDetail
-			+ Toolbar
-			+ Formatbar
-				- (NotebookIndex)
-			+ MessageBar
 
 **NoteIndexContainer**
 - NoteIndex
@@ -34,15 +27,15 @@
 
 **NoteEditContainer**
 - Sidebar
-- Formatbar
-	+ (NotebookIndex)
 - NoteDetail
+	+ Formatbar
+		- (NotebookIndex)
 
 **ShortcutIndexContainer**
-- ShortcutIndexHeader
 - ShortcutIndex
+	+ ShortcutIndexHeader
 
-**NotebookIndexContainer**
+**NotebookIndexContainer** // UPDATE FROM HERE DOWN!
 - NotebookIndexHeader
 	+ Search
 - NotebookIndex

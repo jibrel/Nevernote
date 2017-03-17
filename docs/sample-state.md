@@ -36,6 +36,19 @@
 			author_id: 1
 		}
 	},
-	tagFilters: []
+	tagFilters: [],
+	currentNote: {
+		id: 1,
+		title: "Javascript",
+		body: "Not sure how this is going to store text formatting...",
+		author_id: 1,
+		notebook_id: 1,
+		tags: {
+			1: {
+				id: 1,
+				name: "Programming"
+			}
+		}
+	}
 }
 ```

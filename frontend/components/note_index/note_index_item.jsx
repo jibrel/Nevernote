@@ -13,11 +13,13 @@ const NoteIndexItem = ({ note }) => {
 
   return (
     <li className="note-index-item">
-      { tools }
-      <div className="note-index-text">
-        <h5>{ note.title }</h5>
-        <p>{ snipit }</p>
-      </div>
+      <Link to={ `/note/${note.id}` } >
+        { tools }
+        <div className="note-index-text">
+          <h5>{ note.title }</h5>
+          <p>{ snipit }</p>
+        </div>
+      </Link>
     </li>
   );
 };

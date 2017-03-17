@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app.jsx';
 import AuthFormContainer from './auth/auth_form_container.js';
 import HomeContainer from './home/home_container.js';
+import NoteDetailContainer from './note_detail/note_detail_container.js';
 
 const Root = ({ store }) => {
   const ensureLoggedIn = (nextState, replace) => {
@@ -27,9 +28,10 @@ const Root = ({ store }) => {
         <Route path="/" component={ App }>
           <Route path="/signup" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
           <Route path="/login" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
-          <Route path="/home" component={ HomeContainer } onEnter={ ensureLoggedIn }>
-            
-          </Route>
+        </Route>
+        
+        <Route path="/home" component={ HomeContainer } onEnter={ ensureLoggedIn }>
+          <Route path="/note/:noteId" component={ NoteDetailContainer } onEnter={ ensureLoggedIn } />
         </Route>
       </Router>
     </Provider>
