@@ -15,7 +15,7 @@ class Note < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
 
-  belongs_to :notebook
+  belongs_to :notebook, optional: true
 
   belongs_to :author,
     foreign_key: :author_id,

@@ -9,15 +9,69 @@
 .note-index-header {
   font-family: $sans-serif;
   background-color: $white;
-  color: $medium-grey;
+  border-bottom: 2px $background solid;
 }
 
 .note-index-header h3 {
   margin: 0;
-  padding: 20px;
-  font-weight: lighter;
+  padding: 23px 23px 15px 23px;
+  color: $medium-grey;
+  font-size: 21px;
 }
 
 .note-index-header p {
-  padding: 10px 20px;
+  padding: 10px 23px;
+  color: $light-grey;
+  font-size: 14px;
+}
+
+.note-index-scroll {
+  overflow-y: auto;
+  height: 100%;
+  border-top: 1px $background solid;
+}
+
+.note-index-item {
+  background-color: $white;
+  position: relative;
+  height: 120px;
+}
+
+.note-index-text {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 25px;
+}
+
+.note-index-text h5 {
+  margin: 0;
+  font-family: $serif;
+  font-size: 20px;
+  color: $darkest-grey;
+}
+
+.note-index-text p {
+  font-family: $sans-serif;
+  font-size: 13px;
+  color: $lightest-grey;
+}
+
+.note-index-tools {
+  position: absolute;
+  right: 0;
+  color: $white;
+  margin-right: 2px;
+}
+
+.note-index-item:hover {
+  background-color: $green;
+  cursor: pointer;
+}
+
+.note-index-item:hover h5 {
+  color: $white;
+}
+
+.note-index-item:hover p {
+  color: $white;
 }

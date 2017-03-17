@@ -9,6 +9,10 @@
   background-color: $background;
 }
 
+.green-nav {
+  margin-top: 40px;
+}
+
 .fa {
   padding: 8px;
   font-size: 20px;
@@ -41,4 +45,27 @@
 
 .nav-circle:hover {
   -webkit-text-stroke: 1px $green;
+}
+
+.account-square {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px $lightest-grey solid;
+  width: inherit;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-button {
+  background: $green; // temporary!! please change!
+  height: 33px;
+  width: 33px;
+  border-radius: 50%;
+}
+
+.account-button:hover {
+  cursor: pointer;
 }

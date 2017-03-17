@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import Root from './components/root.jsx';
 import configureStore from './store/store.js';
 
+import { createNote } from './actions/notes_actions.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 	const root = document.getElementById('root');
   const store = configureStore();
@@ -11,3 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	window.store = store;
 });
+
+window.createNote = createNote;

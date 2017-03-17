@@ -66,7 +66,7 @@ class AuthForm extends React.Component {
     const buttonText = (newUser) ? "Create Account" : "Sign in";
     const question = (newUser) ? "Already have an account?" : "Don't have an account?";
     const navLink = (newUser) ? "/login" : "/signup";
-    const linkText = (newUser) ? "Sign in" : "Create Account";
+    const linkText = (newUser) ? "Sign in" : "Create account";
 
     return (
       <div className="auth">

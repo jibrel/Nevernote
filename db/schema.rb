@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20170313184839) do
     t.datetime "updated_at",  null: false
     t.index ["author_id"], name: "index_notes_on_author_id", using: :btree
     t.index ["notebook_id"], name: "index_notes_on_notebook_id", using: :btree
-    t.index ["title"], name: "index_notes_on_title", unique: true, using: :btree
+    t.index ["title"], name: "index_notes_on_title", using: :btree
   end
 
   create_table "taggings", force: :cascade do |t|
