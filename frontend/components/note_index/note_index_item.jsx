@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const NoteIndexItem = ({ note }) => {
+const NoteIndexItem = ({ note, deleteNote }) => {
+  const handleDelete = () => deleteNote(note.id);
   const snipit = note.body.slice(0, 125);
 
   const tools = (
     <nav className="note-index-tools">
       <i className="fa fa-star-o" aria-hidden="true"></i>
-      <i className="fa fa-trash" aria-hidden="true"></i>
+      <i className="fa fa-trash" onClick={ handleDelete } aria-hidden="true"></i>
     </nav>
   )
 

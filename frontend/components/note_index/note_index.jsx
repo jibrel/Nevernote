@@ -9,7 +9,6 @@ class NoteIndex extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchAllNotes()
       .then(() => {
         let noteId = Object.keys(this.props.notes)[0];
@@ -19,7 +18,9 @@ class NoteIndex extends React.Component {
 
   render() {
     const note_keys = Object.keys(this.props.notes);
-    const note_items = note_keys.map(key => <NoteIndexItem key={ key } note={ this.props.notes[key] } />);
+    const note_items = note_keys.map(key => (
+      <NoteIndexItem key={ key } note={ this.props.notes[key] } deleteNote={ this.props.deleteNote }/>
+    ));
 
     return (
       <div>

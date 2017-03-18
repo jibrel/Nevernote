@@ -40,7 +40,7 @@ class AuthForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = this.state;
+    const user = Object.freeze(this.state);
     this.props.processForm({ user });
   }
 
@@ -71,11 +71,11 @@ class AuthForm extends React.Component {
     return (
       <div className="auth">
         <h2 className="auth-header">{ header }</h2>
-        <form onSubmit={ this.handleSubmit } className="auth-form">
-          <button onClick={ this.handleDemo } className="demo-button">Sign in as Guest</button>
-          <input onChange={ this.update("username") } className="auth-input" type="text" placeholder={ usernamePlaceholder } value={ this.state.username }></input>
+        <form className="auth-form" onSubmit={ this.handleSubmit }>
+          <button className="demo-button" onClick={ this.handleDemo }>Sign in as Guest</button>
+          <input className="auth-input" onChange={ this.update("username") } type="text" placeholder={ usernamePlaceholder } value={ this.state.username }></input>
           { this.renderErrors() }
-          <input onChange={ this.update("password") } className="auth-input" type="password" placeholder={ pwPlaceholder } value={ this.state.password }></input>
+          <input className="auth-input" onChange={ this.update("password") } type="password" placeholder={ pwPlaceholder } value={ this.state.password }></input>
           <input className="auth-button" type="submit" value={ buttonText }></input>
         </form>
         <p>{ question }</p>

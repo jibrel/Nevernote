@@ -23,7 +23,7 @@ export const fetchNote = noteId => (
 export const updateNote = note => (
   $.ajax({
     method: "PATCH",
-    url: `/api/note/${note.id}`,
+    url: `/api/notes/${note.id}`,
     data: note
   })
 );

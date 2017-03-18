@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Editor, EditorState } from 'draft-js';
+import { Editor, EditorState, convertFromRaw, convertToRaw, RichUtils } from 'draft-js';
 
 import Toolbar from './toolbar.jsx';
 // import Formatbar from './formatbar.jsx';
@@ -10,13 +10,25 @@ class NoteDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: EditorState.createEmpty() // how to start not empty?
+      title: "",
+      editorState: EditorState.createEmpty()
     };
-    this.onChange = this.onChange.bind(this);
+    // this.saveToDb = this.saveToDb.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
+    this.changeBody = editorState => this.setState({ editorState });
+    this.handleKeyCommand = this.handleKeyCommand.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchNote(this.props.params.noteId);
+    this.props.fetchNote(this.props.params.noteId)
+      .then(({ note }) => this.setState({ title: note.title }));
+  //     .then(({ note }) => {
+  //       const contentState = convertFromRaw(JSON.parse(note.body));
+  //       this.setState({
+  //         title: note.title,
+  //         editorState: EditorState.createWithContent(contentState)
+  //       });
+  //     });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -25,19 +37,33 @@ class NoteDetail extends React.Component {
     }
   }
 
-  onChange(editorState) {
-    this.setState({ editorState });
+  // saveToDb() {
+  //   this.props.updateNote()
+  // }
+
+  changeTitle(e) {
+    e.preventDefault();
+    this.setState({ title: e.target.value });
+  }
+
+  handleKeyCommand(command) {
+    const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
+    if (newState) {
+      this.changeBody(newState);
+      return "handled";
+    }
+    else {
+      return "not-handled";
+    }
   }
 
   render() {
-    const note = this.props.currentNote; // change !!
-
     return (
       <section className="note-detail-section">
-        <Toolbar />
+        <Toolbar noteId={ this.props.params.noteId } deleteNote={ this.props.deleteNote }/>
         <div className="note-detail-text">
-          <h2>{ note.title }</h2>
-          <p>{ note.body }</p>
+          <h2><input onChange={ this.changeTitle } type="text" value={ this.props.currentNote.title } /></h2>
+          <Editor onChange={ this.changeBody } handleKeyCommand={ this.handleKeyCommand } editorState={ this.state.editorState } />
         </div>
       </section>
     );

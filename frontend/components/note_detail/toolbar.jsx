@@ -1,18 +1,14 @@
 import React from 'react';
 
-class Toolbar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Toolbar = ({ noteId, deleteNote }) => {
+  const handleDelete = () => deleteNote(noteId);
 
-  render() {
-    return (
-      <nav className="toolbar">
-        <i className="fa fa-star-o" aria-hidden="true"></i>
-        <i className="fa fa-trash" aria-hidden="true"></i>
-      </nav>
-    )
-  }
+  return (
+    <nav className="toolbar">
+      <i className="fa fa-star-o" aria-hidden="true"></i>
+      <i className="fa fa-trash" onClick={ handleDelete } aria-hidden="true"></i>
+    </nav>
+  );
 }
 
 export default Toolbar;
