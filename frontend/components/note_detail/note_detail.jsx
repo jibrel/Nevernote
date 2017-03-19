@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw, RichUtils } from 'draft-js';
 
 import Toolbar from './toolbar.jsx';
+import { styleMap, InlineStyleControls, BlockStyleControls } from './formatbar.jsx';
 // import MessageBar from './message_bar.jsx';
 
 class NoteDetail extends React.Component {
@@ -17,8 +18,9 @@ class NoteDetail extends React.Component {
     this.logJson = this.logJson.bind(this);  // for creating seed data
     this.changeTitle = this.changeTitle.bind(this);
     this.changeBody = editorState => this.setState({ editorState });
-    this.handleInlineStyle = this.handleInlineStyle.bind(this);
-    this.handleBlockStyle = this.handleBlockStyle.bind(this);
+    this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
+    this.toggleBlockStyle = this.toggleBlockStyle.bind(this);
+    this.onTab = this.onTab.bind(this);
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
   }
 
@@ -29,8 +31,9 @@ class NoteDetail extends React.Component {
       title: this.state.title,
       body: JSON.stringify(rawContent)
     };
-    this.props.updateNote(note)
-      .then(this.setEditorState())
+    // this.props.updateNote(note)
+    //   .then(this.setEditorState);  //THIS DOES NOT WORK!
+    this.setEditorState();
   }
 
   setEditorState() {
@@ -62,16 +65,21 @@ class NoteDetail extends React.Component {
     this.setState({ title: e.target.value });
   }
 
-  handleInlineStyle(type) {
-    () => {
+  toggleInlineStyle() {
+    (type) => {
       this.changeBody(RichUtils.toggleInlineStyle(this.state.editorState, type));
     }
   }
 
-  handleBlockStyle(type) {
-    () => {
+  toggleBlockStyle() {
+    (type) => {
       this.changeBody(RichUtils.toggleBlockType(this.state.editorState, type));
     }
+  }
+
+  onTab(e) {
+    const maxDepth = 4;
+    this.changeBody(RichUtils.onTab(e, this.state.editorState, maxDepth));
   }
 
   handleKeyCommand(command) {
@@ -85,35 +93,27 @@ class NoteDetail extends React.Component {
     }
   }
 
-  renderFormatbar() {
-    return (
-      <nav className="format-bar">
-        <div>
-          <i className="fa fa-bold" onClick={ this.handleInlineStyle('BOLD') } aria-hidden="true"></i>
-          <i className="fa fa-italic" onClick={ this.handleInlineStyle('ITALIC') } aria-hidden="true"></i>
-          <i className="fa fa-underline" onClick={ this.handleInlineStyle('UNDERLINE') } aria-hidden="true"></i>
-          <i className="fa fa-strikethrough" aria-hidden="true"></i>
-          <i className="fa fa-code" onClick={ this.handleBlockStyle('code-block') } aria-hidden="true"></i>
-        </div>
-
-        <div>
-          <i className="fa fa-check-square-o" aria-hidden="true"></i>
-          <i className="fa fa-list-ul" onClick={ this.handleBlockStyle('unordered-list-item') } aria-hidden="true"></i>
-          <i className="fa fa-list-ol" onClick={ this.handleBlockStyle('ordered-list-item') } aria-hidden="true"></i>
-        </div>
-      </nav>
-    );
-  };
-
   render() {
     return (
       <section className="note-detail-section">
         <Toolbar noteId={ this.props.params.noteId } deleteNote={ this.props.deleteNote }/>
-        { this.renderFormatbar() }
+
+        <nav className="format-bar">
+          <InlineStyleControls editorState={ this.state.editorState } onToggle={ this.toggleInlineStyle } />
+          <BlockStyleControls editorState={ this.state.editorState } onToggle={ this.toggleBlockStyle } />
+        </nav>
+
         <div className="note-detail-text">
           <h2><input onChange={ this.changeTitle } type="text" value={ this.state.title } /></h2>
-          <Editor onChange={ this.changeBody } handleKeyCommand={ this.handleKeyCommand } editorState={ this.state.editorState } />
+          <Editor
+            onChange={ this.changeBody }
+            onTab={ this.onTab }
+            handleKeyCommand={ this.handleKeyCommand }
+            editorState={ this.state.editorState }
+            customStyleMap={ styleMap }
+          />
         </div>
+
         { this.logJsonButton() } // temporary!
       </section>
     );
