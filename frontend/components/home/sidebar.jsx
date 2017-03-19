@@ -3,6 +3,12 @@ import React from 'react';
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogout() {
+    this.props.logout();
+    setTimeout(() => this.props.router.push("/login"), 1000);
   }
 
   render() {
@@ -20,7 +26,7 @@ class Sidebar extends React.Component {
           <div className="nav-circle-2"><i className="fa fa-tag" aria-hidden="true"></i></div>
         </nav>
         <div className="account-square">
-          <div className="account-button"></div>
+          <div className="account-button" onClick={ this.handleLogout }></div>
         </div>
       </aside>
     );

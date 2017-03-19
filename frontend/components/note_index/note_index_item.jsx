@@ -1,9 +1,13 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
+import { Editor, EditorState, ContentState, convertFromRaw, getPlainText } from 'draft-js';
 
 const NoteIndexItem = ({ note, deleteNote }) => {
   const handleDelete = () => deleteNote(note.id);
-  const snipit = note.body.slice(0, 125);
+
+  const content = convertFromRaw(JSON.parse(note.body));
+  const snipit = content.getPlainText().slice(0, 125).concat("...");
 
   const tools = (
     <nav className="note-index-tools">

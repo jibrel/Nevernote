@@ -2,11 +2,16 @@ import * as APIUtil from '../util/session_api_util.js';
 import { receiveErrors } from './errors_actions.js';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const LOGOUT = 'LOGOUT';
 
 export const receiveCurrentUser = currentUser => ({
 	type: RECEIVE_CURRENT_USER,
 	currentUser
 });
+
+export const receiveLogout = () => ({
+	type: LOGOUT
+})
 
 export const signup = user => dispatch => (
 	APIUtil.signup(user)
@@ -22,6 +27,6 @@ export const login = user => dispatch => (
 
 export const logout = () => dispatch => (
 	APIUtil.logout()
-		.then(() => dispatch(receiveCurrentUser(null)))
+		.then(() => dispatch(receiveLogout()))
 		.fail(errors => dispatch(receiveErrors(errors.responseJSON, "logout")))
 );

@@ -1,0 +1,17 @@
+.format-bar {
+  display: flex;
+  margin: 8px 50px 0 50px;
+  height: 30px;
+  border-bottom: 1px $even-lighter solid;
+}
+
+.format-bar i {
+  padding: 0;
+  font-size: 12px;
+  color: $darkest-grey;
+}
+
+.format-bar i:hover {
+  color: $green;
+  cursor: pointer;
+}

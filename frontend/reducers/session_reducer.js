@@ -1,7 +1,7 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions.js';
+import { RECEIVE_CURRENT_USER, LOGOUT } from '../actions/session_actions.js';
 
 const nullUser = Object.freeze({
   id: null,
@@ -16,6 +16,8 @@ const SessionReducer = (state = nullUser, action) => {
         id: action.currentUser.id,
         username: action.currentUser.username
       };
+    case LOGOUT:
+      return merge({}, nullUser);
     default:
       return state;
   }

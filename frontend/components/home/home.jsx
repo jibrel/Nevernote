@@ -5,7 +5,7 @@ import NoteIndexContainer from '../note_index/note_index_container.js';
 
 const Home = (props) => (
   <div>
-    <Sidebar props={ props }/>
+    <Sidebar logout={ props.logout } router={ props.router }/>
     <NoteIndexContainer />
     { props.children }
   </div>
