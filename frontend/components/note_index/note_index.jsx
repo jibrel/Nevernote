@@ -19,7 +19,11 @@ class NoteIndex extends React.Component {
   render() {
     const note_keys = Object.keys(this.props.notes);
     const note_items = note_keys.map(key => (
-      <NoteIndexItem key={ key } note={ this.props.notes[key] } deleteNote={ this.props.deleteNote }/>
+      <NoteIndexItem
+        key={ key }
+        note={ this.props.notes[key] }
+        deleteNote={ this.props.deleteNote }
+      />
     ));
 
     return (

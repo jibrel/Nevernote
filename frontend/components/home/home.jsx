@@ -3,11 +3,11 @@ import React from 'react';
 import Sidebar from './sidebar.jsx';
 import NoteIndexContainer from '../note_index/note_index_container.js';
 
-const Home = (props) => (
+const Home = ({ logout, router, children }) => (
   <div>
-    <Sidebar logout={ props.logout } router={ props.router }/>
+    <Sidebar logout={ logout } router={ router }/>
     <NoteIndexContainer />
-    { props.children }
+    { children }
   </div>
 )
 

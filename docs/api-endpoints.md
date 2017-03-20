@@ -35,7 +35,7 @@
 ### tags
 
 - `POST /api/tags`
-- `GET /api/tags`
+- `GET /api/tags` DO I NEED THIS???
 - `DELETE /api/tags/:id`
 
 ### taggings

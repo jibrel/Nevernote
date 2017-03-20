@@ -71,14 +71,33 @@ class AuthForm extends React.Component {
     return (
       <div className="auth">
         <h2 className="auth-header">{ header }</h2>
+
         <form className="auth-form" onSubmit={ this.handleSubmit }>
           <button className="demo-button" onClick={ this.handleDemo }>Sign in as Guest</button>
-          <input className="auth-input" onChange={ this.update("username") } type="text" placeholder={ usernamePlaceholder } value={ this.state.username }></input>
+
+          <input
+            className="auth-input"
+            onChange={ this.update("username") }
+            type="text"
+            placeholder={ usernamePlaceholder }
+            value={ this.state.username }>
+          </input>
+
           { this.renderErrors() }
-          <input className="auth-input" onChange={ this.update("password") } type="password" placeholder={ pwPlaceholder } value={ this.state.password }></input>
+
+          <input
+            className="auth-input"
+            onChange={ this.update("password") }
+            type="password"
+            placeholder={ pwPlaceholder }
+            value={ this.state.password }>
+          </input>
+          
           <input className="auth-button" type="submit" value={ buttonText }></input>
         </form>
+
         <p>{ question }</p>
+
         <Link to={ navLink } className="auth-link">{ linkText }</Link>
       </div>
     );

@@ -15,9 +15,11 @@ class NoteDetail extends React.Component {
     }
     this.setEditorState();
 
+    this.focus = () => this.refs.editor.focus();
+    this.changeBody = editorState => this.setState({ editorState });
+
     this.logJson = this.logJson.bind(this);  // for creating seed data
     this.changeTitle = this.changeTitle.bind(this);
-    this.changeBody = editorState => this.setState({ editorState });
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.toggleBlockStyle = this.toggleBlockStyle.bind(this);
     this.onTab = this.onTab.bind(this);
@@ -99,19 +101,30 @@ class NoteDetail extends React.Component {
         <Toolbar noteId={ this.props.params.noteId } deleteNote={ this.props.deleteNote }/>
 
         <nav className="format-bar">
-          <InlineStyleControls editorState={ this.state.editorState } onToggle={ this.toggleInlineStyle } />
-          <BlockStyleControls editorState={ this.state.editorState } onToggle={ this.toggleBlockStyle } />
+          <InlineStyleControls
+            editorState={ this.state.editorState }
+            onToggle={ this.toggleInlineStyle }
+          />
+
+          <BlockStyleControls
+            editorState={ this.state.editorState }
+            onToggle={ this.toggleBlockStyle }
+          />
         </nav>
 
         <div className="note-detail-text">
           <h2><input onChange={ this.changeTitle } type="text" value={ this.state.title } /></h2>
-          <Editor
-            onChange={ this.changeBody }
-            onTab={ this.onTab }
-            handleKeyCommand={ this.handleKeyCommand }
-            editorState={ this.state.editorState }
-            customStyleMap={ styleMap }
-          />
+          
+          <div onClick={ this.focus }>
+            <Editor
+              onChange={ this.changeBody }
+              onTab={ this.onTab }
+              handleKeyCommand={ this.handleKeyCommand }
+              editorState={ this.state.editorState }
+              customStyleMap={ styleMap }
+              ref="editor"
+            />
+          </div>
         </div>
 
         { this.logJsonButton() } // temporary!

@@ -12,7 +12,7 @@
 		main: ["A tag named Cats already exists."]
 	},
 	messages: {
-		newNotebook: ["Notebook Whales created"],
+		newNotebook: ["Notebook Whales created."],
 		newTag: ["Tag Horses created."]
 	}
 	notes: {

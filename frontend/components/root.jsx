@@ -6,6 +6,7 @@ import App from './app.jsx';
 import AuthFormContainer from './auth/auth_form_container.js';
 import HomeContainer from './home/home_container.js';
 import NoteDetailContainer from './note_detail/note_detail_container.js';
+import NotebookIndexContainer from './notebook_index/notebook_index_container.js';
 
 const Root = ({ store }) => {
   const ensureLoggedIn = (nextState, replace) => {
@@ -29,9 +30,10 @@ const Root = ({ store }) => {
           <Route path="/signup" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
           <Route path="/login" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
         </Route>
-        
+
         <Route path="/home" component={ HomeContainer } onEnter={ ensureLoggedIn }>
           <Route path="/note/:noteId" component={ NoteDetailContainer } onEnter={ ensureLoggedIn } />
+          <Route path="/notebooks" component={ NotebookIndexContainer } onEnter={ ensureLoggedIn } />
         </Route>
       </Router>
     </Provider>

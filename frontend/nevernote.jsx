@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root.jsx';
 import configureStore from './store/store.js';
 
-import { createNote } from './actions/notes_actions.js';
-
 document.addEventListener('DOMContentLoaded', () => {
 	let store;
 	if (window.currentUser) {
@@ -20,5 +18,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	window.store = store;
 });
-
-window.createNote = createNote;

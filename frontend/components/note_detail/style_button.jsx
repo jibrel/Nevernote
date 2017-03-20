@@ -18,7 +18,9 @@ class StyleButton extends React.Component {
     }
 
     return (
-      <i className={ className } onClick={ this.onToggle } aria-hidden="true"></i>
+      <span onMouseDown={ this.onToggle }>
+        <i className={ className } aria-hidden="true"></i>
+      </span>
     )
   }
 }

@@ -5,7 +5,7 @@ import { RECEIVE_NOTES, RECEIVE_NOTE, REMOVE_NOTE } from '../actions/notes_actio
 
 const NotesReducer = (state = {}, action) => {
   Object.freeze(state);
-  const newState = merge({}, state)
+  const newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_NOTES:
       return action.notes;

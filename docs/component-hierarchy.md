@@ -23,29 +23,31 @@
 	+ Toolbar
 	+ Formatbar
 		- (NotebookIndex)
+    - StyleButton
 	+ MessageBar
+
+**ShortcutIndexContainer**
+- ShortcutIndex
+	+ ShortcutIndexHeader
+
+**NotebookIndexContainer**
+- NotebookIndex
+  + NotebookIndexHeader
+	 - Search
+	+ NotebookIndexItem
+
+**TagIndexContainer** // UPDATE FROM HERE DOWN!
+- TagIndexHeader
+	+ Search
+- TagIndex
+	+ TagIndexItem
 
 **NoteEditContainer**
 - Sidebar
 - NoteDetail
 	+ Formatbar
 		- (NotebookIndex)
-
-**ShortcutIndexContainer**
-- ShortcutIndex
-	+ ShortcutIndexHeader
-
-**NotebookIndexContainer** // UPDATE FROM HERE DOWN!
-- NotebookIndexHeader
-	+ Search
-- NotebookIndex
-	+ NotebookIndexItem
-
-**TagIndexContainer**
-- TagIndexHeader
-	+ Search
-- TagIndex
-	+ TagIndexItem
+    - StyleButton
 
 **NewNoteFormContainer**
 - Formatbar
@@ -83,6 +85,9 @@
 | /login                        | AuthFormContainer        |
 | /home                         | HomeContainer            |
 | /home/note/:noteId            | NoteDetailContainer      |
+| /home/shortcuts               | ShortcutIndexContainer   |
+| /home/notebooks               | NotebookIndexContainer   |
+| /home/tags                    | TagIndexContainer        |
 | /note/:noteId/edit            | NoteEditContainer        |
 | /new-note                     | NewNoteFormContainer     |
 | /new-notebook                 | NewNotebookFormContainer |

@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
   notes: state.notes
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchAllNotes: () => dispatch(fetchAllNotes()),
   deleteNote: noteId => dispatch(deleteNote(noteId))
 });
