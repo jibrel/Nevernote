@@ -92,7 +92,7 @@ class AuthForm extends React.Component {
             placeholder={ pwPlaceholder }
             value={ this.state.password }>
           </input>
-          
+
           <input className="auth-button" type="submit" value={ buttonText }></input>
         </form>
 
