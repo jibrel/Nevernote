@@ -9,6 +9,6 @@ const Home = ({ logout, router, children }) => (
     <NoteIndexContainer />
     { children }
   </div>
-)
+);
 
 export default Home;

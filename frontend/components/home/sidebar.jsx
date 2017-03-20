@@ -8,12 +8,12 @@ const Sidebar = ({ logout, router }) => {
 
   const seeNotes = (e) => {
     e.preventDefault();
-    router.push("/home");
+    router.push("/home"); // actually also render the noteindexcontainer!
   }
 
   const seeNotebooks = (e) => {
     e.preventDefault();
-    router.push("/home/notebooks");
+    router.push("/notebooks");
   }
 
   const handleLogout = (e) => {
