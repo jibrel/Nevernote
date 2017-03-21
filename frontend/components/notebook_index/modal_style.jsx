@@ -14,7 +14,7 @@ export const modalStyle = {
     position        : 'fixed',
     top             : -2,
     left            : '74px',
-    right           : '520px',
+    width           : '454.5px',
     bottom          : -2,
     border          : '2px solid #ccc',
     padding         : 0,
