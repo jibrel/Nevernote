@@ -32,10 +32,11 @@
 
 ## Tags:
 
-| columns | validations               | index | datatype |
-|---------|---------------------------|-------|----------|
-| :id     | null: false, unique: true |       | integer  |
-| :name   | null: false, unique: true	|	index | string   |
+| columns    | validations               | index | datatype |
+|------------|---------------------------|-------|----------|
+| :id        | null: false, unique: true |       | integer  |
+| :name      | null: false, unique: true | index | string   |
+| :author_id | null: false               | index | integer  |
 
 
 ## Taggings:

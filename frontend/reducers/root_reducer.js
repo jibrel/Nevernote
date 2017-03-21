@@ -4,6 +4,7 @@ import SessionReducer from './session_reducer.js';
 import ErrorsReducer from './errors_reducer.js';
 import NotesReducer from './notes_reducer.js';
 import NotebooksReducer from './notebooks_reducer.js';
+import TagsReducer from './tags_reducer.js';
 import NoteDetailReducer from './note_detail_reducer.js';
 
 const RootReducer = combineReducers({
@@ -11,6 +12,7 @@ const RootReducer = combineReducers({
 	errors: ErrorsReducer,
 	notes: NotesReducer,
 	notebooks: NotebooksReducer,
+	tags: TagsReducer,
 	currentNote: NoteDetailReducer
 });
 

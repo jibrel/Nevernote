@@ -6,6 +6,13 @@ export const createTag = tag => (
   })
 );
 
+export const fetchAllTags = () => (
+  $.ajax({
+    method: "GET",
+    url: "/api/tags"
+  })
+);
+
 export const deleteTag = tagId => (
   $.ajax({
     method: "DELETE",

@@ -8,7 +8,7 @@ const NotebookIndexItem = ({ notebook, count, deleteNotebook }) => {
       <i className="fa fa-star-o" aria-hidden="true"></i>
       <i className="fa fa-trash" onClick={ handleDelete } aria-hidden="true"></i>
     </nav>
-  )
+  );
 
   return (
     <li className="notebook-index-item">

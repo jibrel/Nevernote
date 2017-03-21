@@ -41,7 +41,7 @@ class NotebookIndex extends React.Component {
       );
     });
 
-    return(
+    return (
       <Modal
         isOpen={ this.props.modalOpen }
         onRequestClose={ this.closeModal }
@@ -49,6 +49,7 @@ class NotebookIndex extends React.Component {
         style={ modalStyle }>
 
         <NotebookIndexHeader router={ this.props.router }/>
+
         <ul className="notebook-index-scroll">
           { notebook_items }
         </ul>

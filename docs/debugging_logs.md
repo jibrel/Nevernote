@@ -8,3 +8,7 @@ Mar. 17:
 - Asynchronous error, in component did mount for note index, was trying to set the state to store the index of the first note after fetching all the notes, but was trying to set state before this.props.notes were defined
 - Solved with a .then, used debugger to check what this.state was
 - Tested a console.log for .then, realized it would work
+
+Mar. 20:
+- Error with updating the note before rendering the new note
+- Had to set a default state for currentNote in the container because was rendering asyncronously before fetching all notes from database

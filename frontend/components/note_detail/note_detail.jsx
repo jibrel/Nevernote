@@ -41,7 +41,7 @@ class NoteDetail extends React.Component {
           title: this.state.title,
           body: JSON.stringify(rawContent)
         };
-        this.props.updateNote({ note })
+        this.props.updateNote(note)
           .then(updatedNote => this.setEditorState(updatedNote));
       }
     }

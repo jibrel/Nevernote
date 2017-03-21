@@ -8,6 +8,11 @@ class Api::TagsController < ApplicationController
     end
   end
 
+  def index
+    @tags = Tag.where(author_id: current_user.id)
+    render :index
+  end
+
   def destroy
     @tag = Tag.find(params[:id])
     if @tag

@@ -35,10 +35,10 @@
 ### tags
 
 - `POST /api/tags`
-- `GET /api/tags` DO I NEED THIS???
+- `GET /api/tags`
 - `DELETE /api/tags/:id`
 
-### taggings
+### taggings: // may not be necessary at all!!
 
 - `POST /api/taggings`
 	+ automatically creates tag if doesn't exist
