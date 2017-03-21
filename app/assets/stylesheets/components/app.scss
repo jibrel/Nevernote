@@ -1,9 +1,13 @@
 body {
-  background-color: $background;
+  background-color: $white;
 }
 
 .green-bar {
   width: 100%;
   background: $green;
   height: 4px;
+}
+
+#root {
+  background-color: $background;
 }
