@@ -13,7 +13,6 @@ class NoteDetail extends React.Component {
       title: "",
       editorState: EditorState.createEmpty()
     }
-    this.setEditorState();
 
     this.focus = () => this.refs.editor.focus();
     this.changeBody = editorState => this.setState({ editorState });
@@ -26,20 +25,23 @@ class NoteDetail extends React.Component {
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
   }
 
-  componentWillReceiveProps() {
-    const rawContent = convertToRaw(this.state.editorState.getCurrentContent());
-    const note = {
-      id: this.props.params.noteId,
-      title: this.state.title,
-      body: JSON.stringify(rawContent)
-    };
-    // this.props.updateNote(note)
-    //   .then(this.setEditorState);  //THIS DOES NOT WORK!
-    this.setEditorState();
+  componentWillReceiveProps(nextProps) {
+    if (this.props.currentNote.id !== nextProps.currentNote.id) {
+      this.setEditorState(nextProps.currentNote);
+    }
+    if (this.props.params.noteId !== nextProps.params.noteId) {
+      const rawContent = convertToRaw(this.state.editorState.getCurrentContent());
+      const note = {
+        id: this.props.params.noteId,
+        title: this.state.title,
+        body: JSON.stringify(rawContent)
+      };
+      this.props.updateNote(note)
+        .then(this.setEditorState);
+    }
   }
 
-  setEditorState() {
-    const note = this.props.currentNote;
+  setEditorState(note) {
     if (note && note.title) {
       this.setState({ title: note.title });
     }
@@ -114,7 +116,7 @@ class NoteDetail extends React.Component {
 
         <div className="note-detail-text">
           <h2><input onChange={ this.changeTitle } type="text" value={ this.state.title } /></h2>
-          
+
           <div onClick={ this.focus }>
             <Editor
               onChange={ this.changeBody }

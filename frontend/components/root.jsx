@@ -41,7 +41,7 @@ const Root = ({ store }) => {
         <Route path="/new-tag" component={ FormContainer } onEnter={ ensureLoggedIn } />
       </Router>
     </Provider>
-  )
+  );
 };
 
 export default Root;

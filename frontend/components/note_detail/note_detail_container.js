@@ -4,7 +4,7 @@ import NoteDetail from './note_detail.jsx';
 import { fetchNote, updateNote, deleteNote } from '../../actions/notes_actions.js';
 
 const mapStateToProps = (state, ownProps) => ({
-  currentNote: state.notes[ownProps.params.noteId],
+  currentNote: state.notes[ownProps.params.noteId] || { id: 0, title: "", body: ""},
   notebooks: state.notebooks
 });
 

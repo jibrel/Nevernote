@@ -1,6 +1,6 @@
 class Api::NotebooksController < ApplicationController
   def create
-    @notebook = Notebook.new(notebook_parmas)
+    @notebook = Notebook.new(notebook_params)
     if @notebook.save
       render :show
     else

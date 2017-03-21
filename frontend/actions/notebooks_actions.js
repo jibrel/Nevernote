@@ -23,7 +23,7 @@ export const removeNotebook = notebookId => ({
 
 export const createNotebook = notebook => dispatch => (
   APIUtil.createNotebook(notebook)
-    .then(notebook => dispatch(recieveNotebook(notebook)))
+    .then(notebook => dispatch(receiveNotebook(notebook)))
     .fail(errors => dispatch(receiveErrors(errors.responseJSON, "main")))
 );
 

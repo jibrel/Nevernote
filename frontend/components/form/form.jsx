@@ -36,14 +36,14 @@ class Form extends React.Component {
 
   goBack(e) {
     e.preventDefault();
-    path = (this.props.formType === "new-notebook") ? "/notebooks" : "/tags";
+    const path = (this.props.formType === "new-notebook") ? "/notebooks" : "/tags";
     this.props.router.push(path); // can you just go back a page?
   }
 
   render() {
     const notebook = (this.props.formType === "new-notebook");
 
-    const icon = (notebook) ?
+    const icon = (notebook) ? (<i className="fa fa-book" aria-hidden="true"></i>) : (<i className="fa fa-tag" aria-hidden="true"></i>);
     const header = (notebook) ? "CREATE NOTEBOOK" : "CREATE TAG";
     const placeholder = (notebook) ? "Title your notebook" : "Name your tag";
     const buttonText = (notebook) ? "Create notebook" : "Create tag";
@@ -64,11 +64,13 @@ class Form extends React.Component {
           </input>
 
           <div className="new-buttons">
-            <input className="new-button submit" type="submit"></input>
-            <button className="new-button cancel" onClick={ this.goBack }></button>
+            <input className="new-button submit" type="submit" value={ buttonText }></input>
+            <button className="new-button cancel" onClick={ this.goBack }>Cancel</button>
           </div>
         </form>
       </div>
     );
   }
 }
+
+export default Form;

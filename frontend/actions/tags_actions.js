@@ -17,7 +17,7 @@ export const removeTag = tagId => ({
 export const createTag = tag => dispatch => (
   APIUtil.createTag(tag)
     .then(tag => dispatch(receiveTag(tag)))
-    .fail(errors => dispatch(receiveErrors(errors.responseJSON, "main")));
+    .fail(errors => dispatch(receiveErrors(errors.responseJSON, "main")))
 );
 
 export const deleteTag = tagId => dispatch => (

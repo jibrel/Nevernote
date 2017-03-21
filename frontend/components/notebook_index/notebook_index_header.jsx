@@ -9,7 +9,7 @@ const NotebookIndexHeader = ({ router }) => {
   return (
     <div className="notebook-index-header">
       <h3>NOTEBOOKS</h3>
-      <i onClick={ newNotebook } class="fa fa-plus" aria-hidden="true"></i>
+      <i onClick={ newNotebook } className="fa fa-plus" aria-hidden="true"></i>
     </div>
   );
 };

@@ -4,10 +4,11 @@ import { withRouter } from 'react-router';
 import NotebookIndex from './notebook_index.jsx';
 import { fetchAllNotebooks, deleteNotebook } from '../../actions/notebooks_actions.js';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   currentUser: state.currentUser,
   notebooks: state.notebooks,
-  notes: state.notes
+  notes: state.notes,
+  modalOpen: (ownProps.location.pathname === "/notebooks")
 });
 
 const mapDispatchToProps = (dispatch) => ({
