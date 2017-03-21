@@ -28,6 +28,10 @@
   width: 100%;
 }
 
+.note-detail-text input::-webkit-input-placeholder {
+  color: $green;
+}
+
 .public-DraftStyleDefault-ltr {
   font-family: $sans-serif;
   font-size: 15px;

@@ -18,11 +18,15 @@ class NoteDetail extends React.Component {
     this.changeBody = editorState => this.setState({ editorState });
 
     this.logJson = this.logJson.bind(this);  // for creating seed data
+
     this.changeTitle = this.changeTitle.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.toggleBlockStyle = this.toggleBlockStyle.bind(this);
     this.onTab = this.onTab.bind(this);
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
+
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,7 +41,7 @@ class NoteDetail extends React.Component {
           title: this.state.title,
           body: JSON.stringify(rawContent)
         };
-        this.props.updateNote(note)
+        this.props.updateNote({ note })
           .then(updatedNote => this.setEditorState(updatedNote));
       }
     }
@@ -99,21 +103,45 @@ class NoteDetail extends React.Component {
     }
   }
 
-  renderButtons() {
-    return (
-      <button className="">Cancel</button>
-      <button className="">Done</button>
-    )
+  handleCancel(e) {
+    e.preventDefault();
+    this.props.router.push("/home");
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const rawContent = convertToRaw(this.state.editorState.getCurrentContent());
+    const note = {
+      title: this.state.title,
+      body: JSON.stringify(rawContent),
+      author_id: this.props.currentUser.id
+    };
+    this.props.createNote({ note })
+      .then(() => this.props.router.push("/home"));
+  }
+
+  renderButtons(formType) {
+    if (formType === 'new') {
+      return (
+        <div className="new-note-buttons">
+          <button className="cancel-note" onClick={ this.handleCancel }>Cancel</button>
+          <button className="submit-note" onClick={ this.handleSubmit }>Done</button>
+        </div>
+      );
+    }
   }
 
   render() {
-    const className = this.props.formType;
+    const formType = this.props.formType;
 
     return (
-      <section className={ `note-detail-section ${className}` }>
-        <Toolbar noteId={ this.props.params.noteId } deleteNote={ this.props.deleteNote }/>
+      <section className={ `note-detail-section ${formType}` }>
+        <Toolbar
+          noteId={ this.props.params.noteId }
+          deleteNote={ this.props.deleteNote }
+        />
 
-        { if (className === 'new') { renderButtons() } }
+        { this.renderButtons(formType) }
 
         <nav className="format-bar">
           <InlineStyleControls
@@ -128,7 +156,12 @@ class NoteDetail extends React.Component {
         </nav>
 
         <div className="note-detail-text">
-          <h2><input onChange={ this.changeTitle } type="text" value={ this.state.title } /></h2>
+          <h2><input
+            onChange={ this.changeTitle }
+            type="text"
+            value={ this.state.title }
+            placeholder="Title your note">
+          </input></h2>
 
           <div onClick={ this.focus }>
             <Editor
@@ -142,7 +175,7 @@ class NoteDetail extends React.Component {
           </div>
         </div>
 
-        { this.logJsonButton() } // temporary!
+        { this.logJsonButton() }
       </section>
     );
   }
