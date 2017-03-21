@@ -5,7 +5,8 @@ import { fetchNote, updateNote, deleteNote } from '../../actions/notes_actions.j
 
 const mapStateToProps = (state, ownProps) => ({
   currentNote: state.notes[ownProps.params.noteId] || { id: 0, title: "", body: ""},
-  notebooks: state.notebooks
+  notebooks: state.notebooks,
+  formType: 'edit'
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -26,18 +26,20 @@ class NoteDetail extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.currentNote.id !== nextProps.currentNote.id) {
-      this.setEditorState(nextProps.currentNote);
-    }
-    if (this.props.params.noteId !== nextProps.params.noteId) {
-      const rawContent = convertToRaw(this.state.editorState.getCurrentContent());
-      const note = {
-        id: this.props.params.noteId,
-        title: this.state.title,
-        body: JSON.stringify(rawContent)
-      };
-      this.props.updateNote(note)
-        .then(this.setEditorState);
+    if (this.props.formType === 'edit') {
+      if (this.props.currentNote.id !== nextProps.currentNote.id) {
+        this.setEditorState(nextProps.currentNote);
+      }
+      if (this.props.params.noteId !== nextProps.params.noteId) {
+        const rawContent = convertToRaw(this.state.editorState.getCurrentContent());
+        const note = {
+          id: this.props.params.noteId,
+          title: this.state.title,
+          body: JSON.stringify(rawContent)
+        };
+        this.props.updateNote(note)
+          .then(updatedNote => this.setEditorState(updatedNote));
+      }
     }
   }
 
@@ -97,10 +99,21 @@ class NoteDetail extends React.Component {
     }
   }
 
-  render() {
+  renderButtons() {
     return (
-      <section className="note-detail-section">
+      <button className="">Cancel</button>
+      <button className="">Done</button>
+    )
+  }
+
+  render() {
+    const className = this.props.formType;
+
+    return (
+      <section className={ `note-detail-section ${className}` }>
         <Toolbar noteId={ this.props.params.noteId } deleteNote={ this.props.deleteNote }/>
+
+        { if (className === 'new') { renderButtons() } }
 
         <nav className="format-bar">
           <InlineStyleControls

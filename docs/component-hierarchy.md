@@ -36,13 +36,13 @@
 	 - Search
 	+ NotebookIndexItem
 
-**TagIndexContainer** // UPDATE FROM HERE DOWN!
-- TagIndexHeader
-	+ Search
+**TagIndexContainer**
 - TagIndex
+  + TagIndexHeader
+	 - Search
 	+ TagIndexItem
 
-**NoteEditContainer**
+**NoteEditContainer** // Update
 - Sidebar
 - NoteDetail
 	+ Formatbar
@@ -50,15 +50,10 @@
     - StyleButton
 
 **NewNoteFormContainer**
-- Formatbar
-	+ (NotebookIndex)
-- NewNoteForm
+- NoteDetail
 
-**NewNotebookFormContainer**
-- NewNotebookForm
-
-**NewTagFormContainer**
-- NewTagForm
+**FormContainer**
+- Form
 
 **SearchPageContainer**
 - SearchPage
@@ -90,7 +85,7 @@
 | /tags                         | TagIndexContainer        |
 | /note/:noteId/edit            | NoteEditContainer        |
 | /new-note                     | NewNoteFormContainer     |
-| /new-notebook                 | NewNotebookFormContainer |
-| /new-tag                      | NewTagFormContainer      |
+| /new-notebook                 | FormContainer            |
+| /new-tag                      | FormContainer            |
 | /search                       | SearchPageContainer      |
 | /search-results               | SearchResultsContainer   |
