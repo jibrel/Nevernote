@@ -18,7 +18,7 @@ const NoteIndexItem = ({ note, deleteNote }) => {
 
   return (
     <li className="note-index-item">
-      <Link to={ `/note/${note.id}` } >
+      <Link to={ `/note/${note.id}` }>
         { tools }
         <div className="note-index-text">
           <h5>{ note.title }</h5>

@@ -42,7 +42,7 @@
 	 - Search
 	+ TagIndexItem
 
-**NoteEditContainer** // Update
+**NoteEditContainer** // Bonus
 - Sidebar
 - NoteDetail
 	+ Formatbar
@@ -55,11 +55,11 @@
 **FormContainer**
 - Form
 
-**SearchPageContainer**
+**SearchPageContainer** // Bonus
 - SearchPage
 	+ SearchSelect
 
-**SearchResultsContainer**
+**SearchResultsContainer** // Bonus
 - SearchResultsHeader
 - NoteIndex
 	+ NoteIndexItem
@@ -82,7 +82,9 @@
 | /note/:noteId                 | NoteDetailContainer      |
 | /shortcuts                    | ShortcutIndexContainer   |
 | /notebooks                    | NotebookIndexContainer   |
+| /notebook/:notebookId         | NoteDetailContainer      |
 | /tags                         | TagIndexContainer        |
+| /tag/:tagId                   | NoteDetailContainer      |
 | /note/:noteId/edit            | NoteEditContainer        |
 | /new-note                     | NewNoteFormContainer     |
 | /new-notebook                 | FormContainer            |

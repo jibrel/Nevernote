@@ -29,6 +29,10 @@ class NoteDetail extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.setEditorState(this.props.currentNote);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.formType === 'edit') {
       if (this.props.currentNote.id !== nextProps.currentNote.id) {
@@ -175,7 +179,6 @@ class NoteDetail extends React.Component {
           </div>
         </div>
 
-        { this.logJsonButton() }
       </section>
     );
   }

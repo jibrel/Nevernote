@@ -37,6 +37,10 @@
   margin-bottom: 30px;
 }
 
+.demo-button:hover {
+  cursor: pointer;
+}
+
 .auth-input:focus {
   color: $darkest-grey;
 }

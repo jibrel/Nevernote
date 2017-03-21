@@ -73,7 +73,7 @@ class AuthForm extends React.Component {
         <h2 className="auth-header">{ header }</h2>
 
         <form className="auth-form" onSubmit={ this.handleSubmit }>
-          <button className="demo-button" onClick={ this.handleDemo }>Sign in as Guest</button>
+          <Link className="demo-button" onClick={ this.handleDemo }>Sign in as Guest</Link>
 
           <input
             className="auth-input"

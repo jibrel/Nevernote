@@ -3,6 +3,8 @@ import React from 'react';
 import NoteIndexHeader from './note_index_header.jsx';
 import NoteIndexItem from './note_index_item.jsx';
 
+import noteSelector from '../selectors.js';
+
 class NoteIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ class NoteIndex extends React.Component {
 
   componentDidMount() {
     const path = this.props.location.pathname;
-    if ((path !== "/notebooks") && (path !== "/tags")) {
+    if (path.startsWith("/note/") || path === "/home") {
       this.props.fetchAllNotes()
         .then(() => {
           let noteId = Object.keys(this.props.notes)[0];
@@ -20,11 +22,12 @@ class NoteIndex extends React.Component {
   }
 
   render() {
-    const note_keys = Object.keys(this.props.notes);
-    const note_items = note_keys.map(key => (
+    const notes = noteSelector(this.props.notes, this.props.location.pathname);
+    const noteKeys = Object.keys(notes);
+    const noteItems = noteKeys.map(key => (
       <NoteIndexItem
         key={ key }
-        note={ this.props.notes[key] }
+        note={ notes[key] }
         deleteNote={ this.props.deleteNote }
       />
     ));
@@ -32,9 +35,9 @@ class NoteIndex extends React.Component {
     return (
       <div>
         <section className="note-index">
-          <NoteIndexHeader count={ note_keys.length }/>
+          <NoteIndexHeader count={ noteKeys.length }/>
           <ul className="note-index-scroll">
-            { note_items }
+            { noteItems }
           </ul>
         </section>
       </div>

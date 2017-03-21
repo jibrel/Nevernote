@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const TagIndexItem = ({ tag, deleteTag }) => {
   const handleDelete = () => deleteTag(tag.id);
@@ -12,10 +13,12 @@ const TagIndexItem = ({ tag, deleteTag }) => {
 
   return (
     <li className="tag-index-item">
-      <div className="tag-item">
-        <p>{ tag.name }</p>
-      </div>
-      { tools }
+      <Link to={ `/tag/${tag.id}` }>
+        <div className="tag-item">
+          <p>{ tag.name }</p>
+        </div>
+        { tools }
+      </Link>
     </li>
   );
 }
