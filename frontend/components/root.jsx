@@ -7,7 +7,7 @@ import AuthFormContainer from './auth/auth_form_container.js';
 import HomeContainer from './home/home_container.js';
 import NoteDetailContainer from './note_detail/note_detail_container.js';
 import NotebookIndexContainer from './notebook_index/notebook_index_container.js';
-import TagIndexContainer from './tag_index_/tag_index_container.js';
+import TagIndexContainer from './tag_index/tag_index_container.js';
 import NewNoteFormContainer from './new_note_form/new_note_form_container.js';
 import FormContainer from './form/form_container.js';
 

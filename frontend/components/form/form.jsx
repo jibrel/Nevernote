@@ -23,19 +23,21 @@ class Form extends React.Component {
         title: this.state.input,
         author_id: this.props.author_id
       }
-      this.props.processForm({ notebook });
+      this.props.processForm({ notebook })
+        .then(() => this.goBack(e));
     }
     else {
       const tag = {
-        name: this.state.input
+        name: this.state.input,
+        author_id: this.props.author_id
       }
-      this.props.processForm({ tag });
+      this.props.processForm({ tag })
+        .then(() => console.log("it worked"))
+        .then(() => this.goBack(e));
     }
-    this.goBack(e);
   }
 
   goBack(e) {
-    e.preventDefault();
     const path = (this.props.formType === "new-notebook") ? "/notebooks" : "/tags";
     this.props.router.push(path); // can you just go back a page?
   }

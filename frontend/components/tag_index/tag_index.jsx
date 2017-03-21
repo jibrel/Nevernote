@@ -38,7 +38,7 @@ class TagIndex extends React.Component {
         contentLabel="tag-index"
         style={ modalStyle }>
 
-        <TagIndexHeader router={ this.props.router }/>
+        <TagIndexHeader router={ this.props.router } />
 
         <ul className="tag-index-scroll">
           { tag_items }

@@ -54,6 +54,16 @@ blogideas = {
   notebook_id: 2
 }
 
+edit = {
+  name: "ToDo",
+  author_id: 1
+}
+
+read = {
+  name: "ToRead",
+  author_id: 1
+}
+
 User.create!(demo_user);
 User.create!(claire);
 
@@ -65,3 +75,6 @@ Note.create!(europe);
 Note.create!(vagabonding);
 
 Note.create!(blogideas);
+
+Tag.create!(edit);
+Tag.create!(read);

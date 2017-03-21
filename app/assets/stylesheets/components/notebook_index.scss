@@ -1,4 +1,4 @@
-.notebook-index-header {
+.index-header {
   height: 100px;
   display: flex;
   justify-content: space-between;
@@ -6,19 +6,19 @@
   padding: 20px 23px 10px 23px;
 }
 
-.notebook-index-header h3 {
-  margin: 0;
+.index-header h3 {
   font-weight: lighter;
   color: $medium-grey;
   font-size: 22px;
+  margin-top: 0;
 }
 
-.notebook-index-header i {
+.index-header i {
   padding: 0;
   color: $dark-grey;
 }
 
-.notebook-index-header i:hover {
+.index-header i:hover {
   cursor: pointer;
 }
 

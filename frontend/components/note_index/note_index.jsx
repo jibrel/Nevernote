@@ -9,11 +9,14 @@ class NoteIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllNotes()
-      .then(() => {
-        let noteId = Object.keys(this.props.notes)[0];
-        this.props.router.push(`/note/${noteId}`);
-      });
+    const path = this.props.location.pathname;
+    if ((path !== "/notebooks") && (path !== "/tags")) {
+      this.props.fetchAllNotes()
+        .then(() => {
+          let noteId = Object.keys(this.props.notes)[0];
+          this.props.router.push(`/note/${noteId}`);
+        });
+    }
   }
 
   render() {

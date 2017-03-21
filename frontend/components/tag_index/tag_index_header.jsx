@@ -7,9 +7,9 @@ const TagIndexHeader = ({ router }) => {
   }
 
   return (
-    <div className="tag-index-header">
+    <div className="index-header">
       <h3>TAGS</h3>
-      <i onClick={ newTag } className="fa fa-tag" aria-hidden="true"></i>
+      <i onClick={ newTag } className="fa fa-plus" aria-hidden="true"></i>
     </div>
   );
 }

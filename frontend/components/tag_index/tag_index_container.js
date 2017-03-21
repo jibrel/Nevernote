@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import TagIndex from './tag_index.jsx';
 import { fetchAllTags, deleteTag } from '../../actions/tags_actions.js';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   tags: state.tags,
   modalOpen: (ownProps.location.pathname === "/tags")
 });

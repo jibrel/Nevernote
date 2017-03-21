@@ -12,10 +12,12 @@ const TagIndexItem = ({ tag, deleteTag }) => {
 
   return (
     <li className="tag-index-item">
-      { tools }
       <div className="tag-item">
         <p>{ tag.name }</p>
       </div>
+      { tools }
     </li>
   );
 }
+
+export default TagIndexItem;
