@@ -12,3 +12,11 @@ Mar. 17:
 Mar. 20:
 - Error with updating the note before rendering the new note
 - Had to set a default state for currentNote in the container because was rendering asyncronously before fetching all notes from database
+
+Mar 21:
+- Buttons were disappearing when I clicked them
+- Inspected in dev tools, had a strange class name
+- Adding "active-button" to current class name, which specified icon type, so non-existent icon class
+
+- Passing a function, onToggle, down to different components, from note detail component to inline/block style controls, to style button
+- Had already handled e, was returning a function that took e but really it needed to just be called with the style type (a string)

@@ -12,6 +12,7 @@
 		- NoteIndex
 			+ NoteIndexHeader
 			+ NoteIndexItem
+  + MessageBar
 
 **NoteIndexContainer**
 - NoteIndex
@@ -22,9 +23,8 @@
 - NoteDetail
 	+ Toolbar
 	+ Formatbar
-		- (NotebookIndex)
+		- NotebookSelector
     - StyleButton
-	+ MessageBar
 
 **ShortcutIndexContainer**
 - ShortcutIndex
@@ -42,13 +42,6 @@
 	 - Search
 	+ TagIndexItem
 
-**NoteEditContainer** // Bonus
-- Sidebar
-- NoteDetail
-	+ Formatbar
-		- (NotebookIndex)
-    - StyleButton
-
 **NewNoteFormContainer**
 - NoteDetail
 
@@ -65,7 +58,7 @@
 	+ NoteIndexItem
 		- NoteDetailContainer
 			+ Formatbar
-				- (NotebookIndex)
+				- NotebookSelector
 			+ NoteDetail
 
 **DeleteConfirmation**
@@ -82,10 +75,9 @@
 | /note/:noteId                 | NoteDetailContainer      |
 | /shortcuts                    | ShortcutIndexContainer   |
 | /notebooks                    | NotebookIndexContainer   |
-| /notebook/:notebookId         | NoteDetailContainer      |
 | /tags                         | TagIndexContainer        |
-| /tag/:tagId                   | NoteDetailContainer      |
-| /note/:noteId/edit            | NoteEditContainer        |
+| /notebook/:notebookId         | NoteDetailContainer      | ??
+| /tag/:tagId                   | NoteDetailContainer      | ??
 | /new-note                     | NewNoteFormContainer     |
 | /new-notebook                 | FormContainer            |
 | /new-tag                      | FormContainer            |

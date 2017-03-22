@@ -43,6 +43,9 @@
 
 .new .note-detail-text {
   width: 90%;
+  position: absolute;
+  top: 95px;
+  overflow-y: auto;
 }
 
 .new .toolbar i {

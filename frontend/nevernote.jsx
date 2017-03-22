@@ -4,7 +4,6 @@ const Modal = require('react-modal');
 
 import Root from './components/root.jsx';
 import configureStore from './store/store.js';
-import noteSelector from './components/selectors.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	let store;
@@ -21,5 +20,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	window.store = store; // remove later!
 });
-
-window.noteSelector = noteSelector;

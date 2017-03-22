@@ -41,10 +41,7 @@ const Root = ({ store }) => {
           <Route path="/tags" component={ TagIndexContainer } onEnter={ ensureLoggedIn } />
         </Route>
 
-        <Route path="/notebook/:notebookId" component={ HomeContainer } onEnter={ ensureLoggedIn }>
-          <Route path="note/:noteId" component={ NoteDetailContainer } onEnter={ ensureLoggedIn } />
-        </Route>
-
+        <Route path="/notebook/:notebookId" component={ HomeContainer } onEnter={ ensureLoggedIn } />
         <Route path="/tag/:tagId" component={ HomeContainer } onEnter={ ensureLoggedIn } />
 
         <Route path="/new-note" component={ NewNoteFormContainer } onEnter={ ensureLoggedIn } />

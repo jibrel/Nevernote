@@ -1,5 +1,7 @@
 import React from 'react';
 
+import MessageBarContainer from '../message_bar/message_bar_container.js';
+
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -32,14 +34,13 @@ class Form extends React.Component {
         author_id: this.props.author_id
       }
       this.props.processForm({ tag })
-        .then(() => console.log("it worked"))
         .then(() => this.goBack(e));
     }
   }
 
   goBack(e) {
     const path = (this.props.formType === "new-notebook") ? "/notebooks" : "/tags";
-    this.props.router.push(path); // can you just go back a page?
+    this.props.router.push(path);
   }
 
   render() {
@@ -70,6 +71,8 @@ class Form extends React.Component {
             <button className="new-button cancel" onClick={ this.goBack }>Cancel</button>
           </div>
         </form>
+
+        <MessageBarContainer />
       </div>
     );
   }

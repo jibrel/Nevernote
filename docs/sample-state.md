@@ -11,9 +11,7 @@
 		login: [],
 		main: ["A tag named Cats already exists."]
 	},
-	messages: {
-		newNotebook: ["Notebook Whales created."],
-		newTag: ["Tag Horses created."]
+	messages: ["Notebook Whales created."],
 	}
 	notes: {
 		1: {

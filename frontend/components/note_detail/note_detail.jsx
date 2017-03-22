@@ -4,7 +4,8 @@ import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw, RichUt
 
 import Toolbar from './toolbar.jsx';
 import { styleMap, blockStyleFn, InlineStyleControls, BlockStyleControls } from './formatbar.jsx';
-// import MessageBar from './message_bar.jsx';
+import NotebookSelector from './notebook_selector.jsx';
+import MessageBarContainer from '../message_bar/message_bar_container.js';
 
 class NoteDetail extends React.Component {
   constructor(props) {
@@ -103,8 +104,7 @@ class NoteDetail extends React.Component {
     }
   }
 
-  handleCancel(e) {
-    e.preventDefault();
+  handleCancel() {
     this.props.router.push("/home");
   }
 
@@ -133,17 +133,22 @@ class NoteDetail extends React.Component {
 
   render() {
     const formType = this.props.formType;
+    const onDelete = (formType === "new") ? this.handleCancel : this.props.deleteNote;
 
     return (
       <section className={ `note-detail-section ${formType}` }>
         <Toolbar
           noteId={ this.props.params.noteId }
-          deleteNote={ this.props.deleteNote }
+          deleteNote={ onDelete }
         />
 
         { this.renderButtons(formType) }
 
         <nav className="format-bar">
+          <button className="notebook-selector-button">
+            <NotebookSelector notebooks={ this.props.notebooks } />
+          </button>
+
           <InlineStyleControls
             editorState={ this.state.editorState }
             onToggle={ this.toggleInlineStyle }
@@ -169,7 +174,6 @@ class NoteDetail extends React.Component {
               onTab={ this.onTab }
               handleKeyCommand={ this.handleKeyCommand }
               editorState={ this.state.editorState }
-              placeholder="Just start typing..."
               customStyleMap={ styleMap }
               blockStyleFn={ blockStyleFn }
               ref="editor"
@@ -177,6 +181,9 @@ class NoteDetail extends React.Component {
           </div>
         </div>
 
+        { this.logJsonButton() }
+
+        <MessageBarContainer />
       </section>
     );
   }
