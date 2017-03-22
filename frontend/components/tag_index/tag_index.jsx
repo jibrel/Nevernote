@@ -20,10 +20,10 @@ class TagIndex extends React.Component {
   }
 
   render() {
-    const tag_keys = Object.keys(this.props.tags);
+    const tagKeys = Object.keys(this.props.tags);
     // count notes per tag?
 
-    const tag_items = tag_keys.map(tagId => (
+    const tagItems = tagKeys.map(tagId => (
       <TagIndexItem
         key={ tagId }
         tag={ this.props.tags[tagId] }
@@ -41,7 +41,7 @@ class TagIndex extends React.Component {
         <TagIndexHeader router={ this.props.router } />
 
         <ul className="tag-index-scroll">
-          { tag_items }
+          { tagItems }
         </ul>
       </Modal>
     );

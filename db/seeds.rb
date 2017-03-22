@@ -64,12 +64,12 @@ blogideas = {
   notebook_id: 2
 }
 
-draft = {
-  title: "Blog Post Drafts",
-  body:
-  author_id: 1,
-  notebook_id: 2
-}
+# draft = {
+#   title: "Blog Post Drafts",
+#   body:
+#   author_id: 1,
+#   notebook_id: 2
+# }
 
 booknotes = {
   title: "Book Notes",
@@ -108,7 +108,7 @@ Note.create!(europe);
 Note.create!(vagabonding);
 
 Note.create!(blogideas);
-Note.create!(draft);
+# Note.create!(draft);
 
 Note.create!(booknotes);
 Note.create!(quotes);

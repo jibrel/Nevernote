@@ -4,9 +4,6 @@ const App = ({ children }) => (
   <div>
     <div className="green-bar"></div>
     { children }
-
-  
-
   </div>
 );
 

@@ -4,7 +4,7 @@ import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw, RichUt
 
 import Toolbar from './toolbar.jsx';
 import { styleMap, blockStyleFn, InlineStyleControls, BlockStyleControls } from './formatbar.jsx';
-import NotebookSelector from './notebook_selector.jsx';
+import NotebookSelectorContainer from '../notebook_selector/notebook_selector_container.js';
 import MessageBarContainer from '../message_bar/message_bar_container.js';
 
 class NoteDetail extends React.Component {
@@ -12,15 +12,19 @@ class NoteDetail extends React.Component {
     super(props);
     this.state = {
       title: "",
-      editorState: EditorState.createEmpty()
+      editorState: EditorState.createEmpty(),
+      notebookId: null,
+      selectorOpen: false
     }
-
-    this.focus = () => this.refs.editor.focus();
-    this.changeBody = editorState => this.setState({ editorState });
+    this.saveNote = this.saveNote.bind(this);
 
     this.logJson = this.logJson.bind(this);  // for creating seed data
 
+    this.changeBody = editorState => this.setState({ editorState });
     this.changeTitle = this.changeTitle.bind(this);
+    this.changeNotebook = this.changeNotebook.bind(this);
+
+    this.focus = () => this.refs.editor.focus();
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.toggleBlockStyle = this.toggleBlockStyle.bind(this);
     this.onTab = this.onTab.bind(this);
@@ -28,6 +32,9 @@ class NoteDetail extends React.Component {
 
     this.handleCancel = this.handleCancel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.toggleSelector = this.toggleSelector.bind(this);
+    this.renderSelector = this.renderSelector.bind(this);
   }
 
   componentDidMount() {
@@ -40,16 +47,13 @@ class NoteDetail extends React.Component {
         this.setEditorState(nextProps.currentNote);
       }
       if (this.props.params.noteId !== nextProps.params.noteId) {
-        const rawContent = convertToRaw(this.state.editorState.getCurrentContent());
-        const note = {
-          id: this.props.params.noteId,
-          title: this.state.title,
-          body: JSON.stringify(rawContent)
-        };
-        this.props.updateNote(note)
-          .then(updatedNote => this.setEditorState(updatedNote));
+        this.saveNote();
       }
     }
+  }
+
+  componentWillUnmount() {
+    this.saveNote();
   }
 
   setEditorState(note) {
@@ -60,6 +64,21 @@ class NoteDetail extends React.Component {
       const content = convertFromRaw(JSON.parse(note.body));
       this.setState({ editorState: EditorState.createWithContent(content) });
     }
+    if (note && note.notebook_id) {
+      this.setState({ notebookId: note.notebook_id });
+    }
+  }
+
+  saveNote() {
+    const rawContent = convertToRaw(this.state.editorState.getCurrentContent());
+    const note = {
+      id: this.props.params.noteId,
+      title: this.state.title,
+      body: JSON.stringify(rawContent),
+      notebook_id: this.state.notebookId
+    };
+    this.props.updateNote(note)
+      .then(updatedNote => this.setEditorState(updatedNote));
   }
 
   // for creating seed data
@@ -78,6 +97,23 @@ class NoteDetail extends React.Component {
 
   changeTitle(e) {
     this.setState({ title: e.target.value });
+  }
+
+  changeNotebook(value) {
+    return (e) => (
+      this.setState({
+        notebookId: parseInt(value),
+        selectorOpen: false
+      }, () => {
+        const note = {
+          id: this.props.params.noteId,
+          notebook_id: this.state.notebookId
+        };
+        if (this.props.formType === "edit") { // error here!
+          this.props.updateNote(note);
+        }
+      })
+    );
   }
 
   toggleInlineStyle(type) {
@@ -114,10 +150,28 @@ class NoteDetail extends React.Component {
     const note = {
       title: this.state.title,
       body: JSON.stringify(rawContent),
-      author_id: this.props.currentUser.id
+      author_id: this.props.currentUser.id,
+      notebook_id: this.state.notebookId
     };
     this.props.createNote({ note })
       .then(() => this.props.router.push("/home"));
+  }
+
+  toggleSelector() {
+    if (this.state.selectorOpen) {
+      this.setState({ selectorOpen: false });
+    }
+    else {
+      this.setState({ selectorOpen: true });
+    }
+  }
+
+  renderSelector() {
+    if (this.state.selectorOpen) {
+      return (
+        <NotebookSelectorContainer onChange={ this.changeNotebook }/>
+      );
+    }
   }
 
   renderButtons(formType) {
@@ -145,9 +199,14 @@ class NoteDetail extends React.Component {
         { this.renderButtons(formType) }
 
         <nav className="format-bar">
-          <button className="notebook-selector-button">
-            <NotebookSelector notebooks={ this.props.notebooks } />
+          <button className="notebook-selector-button" onClick={ this.toggleSelector }>
+            <i className="fa fa-book" aria-hidden="true"></i>
+            <p>{ this.props.notebookTitle }</p>
           </button>
+
+          { this.renderSelector() }
+
+          <div className="style-controls"><p></p></div>
 
           <InlineStyleControls
             editorState={ this.state.editorState }

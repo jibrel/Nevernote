@@ -59,6 +59,7 @@
 		- NoteDetailContainer
 			+ Formatbar
 				- NotebookSelector
+        - StyleButton
 			+ NoteDetail
 
 **DeleteConfirmation**

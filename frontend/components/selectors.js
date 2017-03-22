@@ -5,7 +5,7 @@ const noteSelector = (notes = {}, pathname) => {
   const newNotes = {};
 
   if (pathname.startsWith("/notebook/")) {
-    const notebookId = pathname.slice(10);
+    const notebookId = pathname.split("/")[2];
     noteKeys.forEach(key => {
       if (notes[key].notebook_id == notebookId) {
         newNotes[key] = notes[key];
@@ -14,7 +14,7 @@ const noteSelector = (notes = {}, pathname) => {
     return newNotes;
   }
   else if (pathname.startsWith("/tag/")) {
-    const tagId = pathname.slice(5);
+    const tagId = pathname.split("/")[2];
     noteKeys.forEach(key => {
       if (notes[key].tag_id == tagId) {
         newNotes[key] = notes[key];
