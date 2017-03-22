@@ -14,7 +14,7 @@ class StyleButton extends React.Component {
   render() {
     let className = `style-button ${this.props.class}`;
     if (this.props.active) {
-      className += "active-button";
+      className += " active-button";
     }
 
     return (

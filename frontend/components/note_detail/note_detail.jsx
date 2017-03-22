@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw, RichUtils } from 'draft-js';
 
 import Toolbar from './toolbar.jsx';
-import { styleMap, InlineStyleControls, BlockStyleControls } from './formatbar.jsx';
+import { styleMap, blockStyleFn, InlineStyleControls, BlockStyleControls } from './formatbar.jsx';
 // import MessageBar from './message_bar.jsx';
 
 class NoteDetail extends React.Component {
@@ -34,7 +34,7 @@ class NoteDetail extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.formType === 'edit') {
+    if (this.props.formType === "edit") {
       if (this.props.currentNote.id !== nextProps.currentNote.id) {
         this.setEditorState(nextProps.currentNote);
       }
@@ -121,7 +121,7 @@ class NoteDetail extends React.Component {
   }
 
   renderButtons(formType) {
-    if (formType === 'new') {
+    if (formType === "new") {
       return (
         <div className="new-note-buttons">
           <button className="cancel-note" onClick={ this.handleCancel }>Cancel</button>
@@ -169,7 +169,9 @@ class NoteDetail extends React.Component {
               onTab={ this.onTab }
               handleKeyCommand={ this.handleKeyCommand }
               editorState={ this.state.editorState }
+              placeholder="Just start typing..."
               customStyleMap={ styleMap }
+              blockStyleFn={ blockStyleFn }
               ref="editor"
             />
           </div>

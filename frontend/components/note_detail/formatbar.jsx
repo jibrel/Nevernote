@@ -8,11 +8,22 @@ export const styleMap = {
   CODE: {
     backgroundColor: 'rgba(0, 0, 0, 0.05)',
     fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
-    fontSize: 16,
-    padding: 2,
+    fontSize: 12,
+    padding: 5,
   },
   STRIKETHROUGH: {
-    textDecoration: 'line-through'
+    textDecoration: "line-through"
+  }
+};
+
+export const blockStyleFn = (contentBlock) => {
+  switch(contentBlock.getType()) {
+    case "unordered-list-item":
+      return "ul-block-style";
+    case "ordered-list-item":
+      return "ol-block-style";
+    default:
+      return null;
   }
 };
 
@@ -25,7 +36,8 @@ export const INLINE_STYLES = [
 ];
 
 export const InlineStyleControls = ({ editorState, onToggle }) => {
-  var currentStyle = editorState.getCurrentInlineStyle();
+  var currentStyle = editorState
+    .getCurrentInlineStyle();
 
   return (
     <div className="style-controls">
@@ -38,18 +50,20 @@ export const InlineStyleControls = ({ editorState, onToggle }) => {
           onToggle={ onToggle }
         />
       )}
+      <p></p>
     </div>
   );
 };
 
 export const BLOCK_TYPES = [
-  { class: "fa fa-list-ul", style: 'unordered-list-item'},
-  { class: "fa fa-list-ol", style: 'ordered-list-item'}
+  { class: "fa fa-list-ul", style: "unordered-list-item"},
+  { class: "fa fa-list-ol", style: "ordered-list-item"}
 ];
 
 export const BlockStyleControls = ({ editorState, onToggle }) => {
   const selection = editorState.getSelection();
-  const blockType = editorState.getCurrentContent()
+  const blockType = editorState
+    .getCurrentContent()
     .getBlockForKey(selection.getStartKey())
     .getType();
 
@@ -64,6 +78,7 @@ export const BlockStyleControls = ({ editorState, onToggle }) => {
           onToggle={ onToggle }
         />
       )}
+      <p></p>
     </div>
   );
 };
