@@ -79,16 +79,12 @@ class NoteDetail extends React.Component {
     this.setState({ title: e.target.value });
   }
 
-  toggleInlineStyle() {
-    (type) => {
-      this.changeBody(RichUtils.toggleInlineStyle(this.state.editorState, type));
-    }
+  toggleInlineStyle(type) {
+    this.changeBody(RichUtils.toggleInlineStyle(this.state.editorState, type));
   }
 
-  toggleBlockStyle() {
-    (type) => {
-      this.changeBody(RichUtils.toggleBlockType(this.state.editorState, type));
-    }
+  toggleBlockStyle(type) {
+    this.changeBody(RichUtils.toggleBlockType(this.state.editorState, type));
   }
 
   onTab(e) {
