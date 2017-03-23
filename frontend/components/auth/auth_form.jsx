@@ -69,37 +69,40 @@ class AuthForm extends React.Component {
     const linkText = (newUser) ? "Sign in" : "Create account";
 
     return (
-      <div className="background">
-        <div className="auth">
-          <h2 className="auth-header">{ header }</h2>
+      <div>
+        <div className="green-bar"></div>
+        <div className="background">
+          <div className="auth">
+            <h2 className="auth-header">{ header }</h2>
 
-          <form className="auth-form" onSubmit={ this.handleSubmit }>
-            <Link className="demo-button" onClick={ this.handleDemo }>Sign in as Guest</Link>
+            <form className="auth-form" onSubmit={ this.handleSubmit }>
+              <Link className="demo-button" onClick={ this.handleDemo }>Sign in as Guest</Link>
 
-            <input
-              className="auth-input"
-              onChange={ this.update("username") }
-              type="text"
-              placeholder={ usernamePlaceholder }
-              value={ this.state.username }>
-            </input>
+              <input
+                className="auth-input"
+                onChange={ this.update("username") }
+                type="text"
+                placeholder={ usernamePlaceholder }
+                value={ this.state.username }>
+              </input>
 
-            { this.renderErrors() }
+              { this.renderErrors() }
 
-            <input
-              className="auth-input"
-              onChange={ this.update("password") }
-              type="password"
-              placeholder={ pwPlaceholder }
-              value={ this.state.password }>
-            </input>
+              <input
+                className="auth-input"
+                onChange={ this.update("password") }
+                type="password"
+                placeholder={ pwPlaceholder }
+                value={ this.state.password }>
+              </input>
 
-            <input className="auth-button" type="submit" value={ buttonText }></input>
-          </form>
+              <input className="auth-button" type="submit" value={ buttonText }></input>
+            </form>
 
-          <p>{ question }</p>
+            <p>{ question }</p>
 
-          <Link to={ navLink } className="auth-link">{ linkText }</Link>
+            <Link to={ navLink } className="auth-link">{ linkText }</Link>
+          </div>
         </div>
       </div>
     );

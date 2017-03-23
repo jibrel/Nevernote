@@ -95,6 +95,8 @@ read = {
   author_id: 1
 }
 
+
+
 User.create!(demo_user);
 User.create!(claire);
 
@@ -115,3 +117,8 @@ Note.create!(quotes);
 
 Tag.create!(edit);
 Tag.create!(read);
+
+Tagging.create!({
+  note_id: 2,
+  tag_id: 1
+  });

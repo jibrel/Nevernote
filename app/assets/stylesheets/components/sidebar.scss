@@ -61,12 +61,5 @@
 }
 
 .account-button {
-  background: $green; // temporary!! please change!
-  height: 33px;
-  width: 33px;
-  border-radius: 50%;
-}
-
-.account-button:hover {
-  cursor: pointer;
+  border: 1px $green solid;
 }

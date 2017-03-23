@@ -5,7 +5,7 @@ class TagSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: []
+      tags: this.props.currentTags
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -19,12 +19,11 @@ class TagSelector extends React.Component {
   }
 
   handleClick(e) {
-    e.currentTarget.classList.toggle("active-tag");
-
+    e.preventDefault();
     const tagId = parseInt(e.currentTarget.value);
     let newTags = this.state.tags;
     if (newTags.includes(tagId)) {
-      newTags = without(newTags, [tagId]);
+      newTags = without(newTags, tagId);
     }
     else {
       newTags = newTags.concat(parseInt(tagId));
@@ -46,6 +45,7 @@ class TagSelector extends React.Component {
       if (this.state.tags.includes(parseInt(tagId))) {
         className = "active-tag";
       }
+      console.log(this.state.tags);
 
       return (
         <button className={`${className} tag-item selector`} onClick={ this.handleClick } value={ tagId } key={ tagId }>

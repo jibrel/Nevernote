@@ -5,7 +5,7 @@ import Home from './home.jsx';
 import { logout } from '../../actions/session_actions.js';
 
 const mapStateToProps = (state) => ({
-  currentUser: state.current_user
+  currentUser: state.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

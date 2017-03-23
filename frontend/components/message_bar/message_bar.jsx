@@ -9,12 +9,14 @@ class MessageBar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      shown: ((nextProps.errors.length > 0) || (nextProps.messages.length > 0))
-    });
-    setTimeout(() => this.setState({
-      shown: false
-    }), 3000);
+    if (nextProps.errors) {
+      this.setState({
+        shown: ((nextProps.errors.length > 0) || (nextProps.messages.length > 0))
+      });
+      setTimeout(() => this.setState({
+        shown: false
+      }), 3000);
+    }
   }
 
   render() {

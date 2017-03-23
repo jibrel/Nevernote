@@ -13,7 +13,7 @@ const LandingPage = () => (
     </div>
 
     <section className="main-video">
-      <div className="video-frame" dataVideo="/evernote.com/video/homepage" dataImage="/evernote.com/img/homepage/homepage-hero-video-desktop-still.jpg" dataMobile="/evernote.com/img/homepage/homepage-hero-video-mobile-still.jpg">
+      <div className="video-frame">
         <video autoPlay="autoplay" loop="loop" poster="https://cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still.jpg">
           <source className="webm" type="video/webm" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video.webm" />
           <source className="mp4" type="video/mp4" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video.mp4" />

@@ -117,7 +117,7 @@ class NoteDetail extends React.Component {
           id: this.props.params.noteId,
           notebook_id: this.state.notebookId
         };
-        if (this.props.formType === "edit") { // does not display notebook before note created!
+        if (this.props.formType === "edit") {
           this.props.updateNote(note);
         }
       })

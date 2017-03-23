@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import LandingPage from './landing_page.jsx';
-import App from './app.jsx';
 import AuthFormContainer from './auth/auth_form_container.js';
 import HomeContainer from './home/home_container.js';
 import NoteDetailContainer from './note_detail/note_detail_container.js';
@@ -20,26 +19,20 @@ const Root = ({ store }) => {
     }
   };
 
-  const redirectToWelcome = (nextState, replace) => {
-    replace("/welcome");
-  }
-
   const ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().currentUser.username;
     if (!currentUser) {
-      replace("/login");
+      replace("/");
     }
   };
 
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/welcome" component={ LandingPage }/>
+        <Route path="/" component={ LandingPage }/>
 
-        <Route path="/" component={ App } onEnter={ redirectToWelcome }>
-          <Route path="/signup" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
-          <Route path="/login" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
-        </Route>
+        <Route path="/signup" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
+        <Route path="/login" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
 
         <Route path="/home" component={ HomeContainer } onEnter={ ensureLoggedIn }>
           <Route path="/note/:noteId" component={ NoteDetailContainer } onEnter={ ensureLoggedIn } />
