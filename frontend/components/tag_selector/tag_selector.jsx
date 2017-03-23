@@ -1,23 +1,39 @@
 import React from 'react';
+import without from 'lodash/without';
 
 class TagSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: this.props.currentTags
+      tags: []
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchAllTags();
+    this.props.fetchAllTags()
+      .then(() => this.setState({
+        tags: this.props.currentTags
+      })
+    );
   }
 
   handleClick(e) {
+    e.currentTarget.classList.toggle("active-tag");
+
+    const tagId = parseInt(e.currentTarget.value);
+    let newTags = this.state.tags;
+    if (newTags.includes(tagId)) {
+      newTags = without(newTags, [tagId]);
+    }
+    else {
+      newTags = newTags.concat(parseInt(tagId));
+    }
+
     this.setState({
-      tags: this.state.tags.concat(parseInt(e.target.value))
+      tags: newTags
     }, () => (
-      this.props.onChange(this.state.tags) //
+      this.props.onChange(this.state.tags)
     ));
   }
 
@@ -32,16 +48,16 @@ class TagSelector extends React.Component {
       }
 
       return (
-        <div className="tag-item" onClick={ this.handleClick } value={ tagId } key={ tagId }>
-          <p className={ className }>{ tags[tagId].name }</p>
-        </div>
+        <button className={`${className} tag-item selector`} onClick={ this.handleClick } value={ tagId } key={ tagId }>
+          <p>{ tags[tagId].name }</p>
+        </button>
       );
     });
 
     return (
-      <ul className="selector-scroll">
+      <ul className="tag selector-scroll">
         <li className="selector-header">
-          <div className="selector-header-text">
+          <div className="tag selector-header-text">
             <p>TAGS</p>
           </div>
         </li>

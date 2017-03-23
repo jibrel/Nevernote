@@ -63,6 +63,10 @@
   cursor: pointer;
 }
 
+.notebook-selector-item:hover .notebook-selector-text {
+  border-color: $green;
+}
+
 .notebook-selector-text {
   margin: 0 15px;
   border-bottom: 1px $even-lighter solid;
@@ -74,4 +78,8 @@
 
 .notebook-selector-text p {
   padding-left: 8px;
+}
+
+.active-text {
+  color: $green;
 }

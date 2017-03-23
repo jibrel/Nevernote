@@ -31,7 +31,6 @@ class NoteDetail extends React.Component {
     this.focus = () => this.refs.editor.focus();
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.toggleBlockStyle = this.toggleBlockStyle.bind(this);
-    this.onTab = this.onTab.bind(this);
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
 
     this.handleCancel = this.handleCancel.bind(this);
@@ -84,7 +83,7 @@ class NoteDetail extends React.Component {
       title: this.state.title,
       body: JSON.stringify(rawContent),
       notebook_id: this.state.notebookId,
-      tags: this.state.tags
+      tag_ids: this.state.tags
     };
     this.props.updateNote(note)
       .then(updatedNote => this.setEditorState(updatedNote));
@@ -126,19 +125,17 @@ class NoteDetail extends React.Component {
   }
 
   changeTags(tagIds) {
-    return (e) => (
-      this.setState({
-        tags: tagIds
-      }, () => {
-        const note = {
-          id: this.props.params.noteId,
-          tags: this.state.tags
-        };
-        if (this.props.formType === "edit") {
-          this.props.updateNote(note);
-        }
-      })
-    )
+    this.setState({
+      tags: tagIds
+    }, () => {
+      const note = {
+        id: this.props.params.noteId,
+        tag_ids: this.state.tags
+      };
+      if (this.props.formType === "edit") {
+        this.props.updateNote(note);
+      }
+    });
   }
 
   toggleInlineStyle(type) {
@@ -147,11 +144,6 @@ class NoteDetail extends React.Component {
 
   toggleBlockStyle(type) {
     this.changeBody(RichUtils.toggleBlockType(this.state.editorState, type));
-  }
-
-  onTab(e) {
-    const maxDepth = 4;
-    this.changeBody(RichUtils.onTab(e, this.state.editorState, maxDepth));
   }
 
   handleKeyCommand(command) {
@@ -177,19 +169,25 @@ class NoteDetail extends React.Component {
       body: JSON.stringify(rawContent),
       author_id: this.props.currentUser.id,
       notebook_id: this.state.notebookId,
-      tags: this.state.tags
+      tag_ids: this.state.tags
     };
     this.props.createNote({ note })
       .then(() => this.props.router.push("/home"));
   }
 
   toggleSelector(selector) {
-    if (this.state[selector]) {
-      this.setState({ [selector]: false });
-    }
-    else {
-      this.setState({ [selector]: true });
-    }
+    const otherSelector = (selector == "notebookSelectorOpen") ? "tagSelectorOpen" : "notebookSelectorOpen";
+    return ((e) => {
+      if (this.state[selector]) {
+        this.setState({ [selector]: false });
+      }
+      else {
+        this.setState({
+          [selector]: true,
+          [otherSelector]: false
+        });
+      }
+    });
   }
 
   renderNotebookSelector() {
@@ -272,7 +270,6 @@ class NoteDetail extends React.Component {
           <div onClick={ this.focus }>
             <Editor
               onChange={ this.changeBody }
-              onTab={ this.onTab }
               handleKeyCommand={ this.handleKeyCommand }
               editorState={ this.state.editorState }
               customStyleMap={ styleMap }

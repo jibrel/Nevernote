@@ -21,8 +21,8 @@ class NotebookSelector extends React.Component {
 
       return (
         <li className="notebook-selector-item" onClick={ this.props.onChange(notebookId) } key={ notebookId }>
-          <div className="notebook-selector-text">
-            <p className={ className }>{ notebooks[notebookId].title }</p>
+          <div className={ `${className} notebook-selector-text` }>
+            <p>{ notebooks[notebookId].title }</p>
           </div>
         </li>
       );
