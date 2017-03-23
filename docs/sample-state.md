@@ -38,7 +38,6 @@
 			author_id: 1
 		}
 	},
-	tagFilters: [],
 	currentNote: {
 		id: 1,
 		title: "Javascript",

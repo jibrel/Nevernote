@@ -20,7 +20,7 @@
 
 - `POST /api/notes`
 - `GET /api/notes`
-	+ can be filtered by notebook or tag on the frontend
+	+ filtered by a selector on the frontend
 - `GET /api/notes/:id`
 - `PATCH /api/notes/:id`
 - `DELETE /api/notes/:id`
@@ -36,11 +36,5 @@
 
 - `POST /api/tags`
 - `GET /api/tags`
+	+ shows list of all tags
 - `DELETE /api/tags/:id`
-
-### taggings: // may not be necessary at all!!
-
-- `POST /api/taggings`
-	+ automatically creates tag if doesn't exist
-- `DELETE /api/taggings/:id`
-	+ doesn't delete the tag but removes it from note

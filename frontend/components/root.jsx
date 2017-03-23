@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
+import LandingPage from './landing_page.jsx';
 import App from './app.jsx';
 import AuthFormContainer from './auth/auth_form_container.js';
 import HomeContainer from './home/home_container.js';
@@ -12,13 +13,6 @@ import NewNoteFormContainer from './new_note_form/new_note_form_container.js';
 import FormContainer from './form/form_container.js';
 
 const Root = ({ store }) => {
-  const ensureLoggedIn = (nextState, replace) => {
-    const currentUser = store.getState().currentUser.username;
-    if (!currentUser) {
-      replace("/login");
-    }
-  };
-
   const redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().currentUser.username;
     if (currentUser) {
@@ -26,10 +20,23 @@ const Root = ({ store }) => {
     }
   };
 
+  const redirectToWelcome = (nextState, replace) => {
+    replace("/welcome");
+  }
+
+  const ensureLoggedIn = (nextState, replace) => {
+    const currentUser = store.getState().currentUser.username;
+    if (!currentUser) {
+      replace("/login");
+    }
+  };
+
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/" component={ App }>
+        <Route path="/welcome" component={ LandingPage }/>
+
+        <Route path="/" component={ App } onEnter={ redirectToWelcome }>
           <Route path="/signup" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
           <Route path="/login" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
         </Route>

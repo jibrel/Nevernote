@@ -83,3 +83,7 @@
 .active-text {
   color: $green;
 }
+
+.notebook-selector-item:hover .active-text {
+  color: $white;
+}

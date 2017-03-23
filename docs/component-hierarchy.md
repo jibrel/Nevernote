@@ -1,6 +1,10 @@
 # Component Hierarchy
 
+**Welcome**
+- LandingPage
+
 **Root**
+- App
 
 **AuthFormContainer**
 - AuthForm
@@ -24,6 +28,7 @@
 	+ Toolbar
 	+ Formatbar
 		- NotebookSelector
+    - TagSelector
     - StyleButton
 
 **ShortcutIndexContainer**
@@ -33,13 +38,13 @@
 **NotebookIndexContainer**
 - NotebookIndex
   + NotebookIndexHeader
-	 - Search
+	  - Search
 	+ NotebookIndexItem
 
 **TagIndexContainer**
 - TagIndex
   + TagIndexHeader
-	 - Search
+	  - Search
 	+ TagIndexItem
 
 **NewNoteFormContainer**
@@ -69,6 +74,7 @@
 
 |Path                           | Component                |
 |-------------------------------|--------------------------|
+| /welcome                      | LandingPage              |
 | /                             | Root                     |
 | /signup                       | AuthFormContainer        |
 | /login                        | AuthFormContainer        |
@@ -77,8 +83,10 @@
 | /shortcuts                    | ShortcutIndexContainer   |
 | /notebooks                    | NotebookIndexContainer   |
 | /tags                         | TagIndexContainer        |
-| /notebook/:notebookId         | NoteDetailContainer      | ??
-| /tag/:tagId                   | NoteDetailContainer      | ??
+| /notebook/:notebookId         | HomeContainer            |
+| /tag/:tagId                   | HomeContainer            |
+| /notebook/:notebookId         | NoteDetailContainer      |
+| /tag/:tagId/note/:noteId      | NoteDetailContainer      |
 | /new-note                     | NewNoteFormContainer     |
 | /new-notebook                 | FormContainer            |
 | /new-tag                      | FormContainer            |
