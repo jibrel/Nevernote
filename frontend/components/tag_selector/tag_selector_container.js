@@ -1,16 +1,14 @@
 import { connect } from 'react-redux';
 
 import TagSelector from './tag_selector.jsx';
-import { fetchAllTags } from '../../actions/tags_actions.js';
 
 const mapStateToProps = (state) => ({
-  tags: state.tags
+  tags: state.tags,
+  currentTags: state.currentNote.tag_ids
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchAllTags: () => dispatch(fetchAllTags()),
-  onChange: ownProps.onChange,
-  currentTags: ownProps.currentTags
+  onChange: ownProps.onChange
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TagSelector);

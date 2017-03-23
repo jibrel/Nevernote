@@ -16,7 +16,7 @@ const noteSelector = (notes = {}, pathname) => {
   else if (pathname.startsWith("/tag/")) {
     const tagId = pathname.split("/")[2];
     noteKeys.forEach(key => {
-      if (notes[key].tag_id == tagId) {
+      if (notes[key].tag_ids.includes(parseInt(tagId))) {
         newNotes[key] = notes[key];
       }
     });

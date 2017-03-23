@@ -2,6 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
+import { fetchAllTags } from '../actions/tags_actions.js';
+
 import LandingPage from './landing_page.jsx';
 import AuthFormContainer from './auth/auth_form_container.js';
 import HomeContainer from './home/home_container.js';
@@ -26,6 +28,11 @@ const Root = ({ store }) => {
     }
   };
 
+  const handleHome = (nextState, replace) => {
+    ensureLoggedIn(nextState, replace);
+    store.dispatch(fetchAllTags());
+  }
+
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
@@ -34,7 +41,7 @@ const Root = ({ store }) => {
         <Route path="/signup" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
         <Route path="/login" component={ AuthFormContainer } onEnter={ redirectIfLoggedIn } />
 
-        <Route path="/home" component={ HomeContainer } onEnter={ ensureLoggedIn }>
+        <Route path="/home" component={ HomeContainer } onEnter={ handleHome }>
           <Route path="/note/:noteId" component={ NoteDetailContainer } onEnter={ ensureLoggedIn } />
 
           <Route path="/notebooks" component={ NotebookIndexContainer } onEnter={ ensureLoggedIn } />

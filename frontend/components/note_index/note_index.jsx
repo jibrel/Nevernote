@@ -17,12 +17,14 @@ class NoteIndex extends React.Component {
       this.props.fetchAllNotes()
         .then(() => this.showFirstNote(path));
     }
+    else {
+      this.props.fetchAllNotes();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     const path = this.props.location.pathname;
     if (path.startsWith("/notebook/") || path.startsWith("/tag/")) {
-      console.log("About to show first note");
       if (!this.props.params.noteId) {
         this.showFirstNote(path);
       }
@@ -48,7 +50,8 @@ class NoteIndex extends React.Component {
   }
 
   render() {
-    const notes = noteSelector(this.props.notes, this.props.location.pathname);
+    const path = this.props.location.pathname;
+    const notes = noteSelector(this.props.notes, path);
     const noteKeys = Object.keys(notes);
     const noteItems = noteKeys.map(key => (
       <NoteIndexItem
@@ -59,10 +62,20 @@ class NoteIndex extends React.Component {
       />
     ));
 
+    let header = "NOTES";
+    // if (path.startsWith("/tag/")) {
+    //   const tagId = this.props.params.tagId;
+    //   header = this.props.tags[tagId].name.toUpperCase();
+    // }
+    // if (path.startsWith("/notebook/")) {
+    //   const notebookId = this.props.params.notebookId;
+    //   header = this.props.notebooks[notebookId].title.toUpperCase();
+    // }
+
     return (
       <div>
         <section className="note-index">
-          <NoteIndexHeader count={ noteKeys.length }/>
+          <NoteIndexHeader count={ noteKeys.length } header={ header }/>
           <ul className="note-index-scroll">
             { noteItems }
           </ul>

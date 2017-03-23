@@ -26,6 +26,7 @@ class Api::NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
+    @note.tag_ids = note_params[:tag_ids] || []
     if author? && @note.update_attributes(note_params)
       render :show, include: [:tags]
     else

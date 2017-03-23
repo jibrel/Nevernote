@@ -5,17 +5,15 @@ class TagSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: this.props.currentTags
+      tags: []
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchAllTags()
-      .then(() => this.setState({
-        tags: this.props.currentTags
-      })
-    );
+    this.setState({
+      tags: this.props.currentTags
+    });
   }
 
   handleClick(e) {
@@ -45,10 +43,14 @@ class TagSelector extends React.Component {
       if (this.state.tags.includes(parseInt(tagId))) {
         className = "active-tag";
       }
-      console.log(this.state.tags);
 
       return (
-        <button className={`${className} tag-item selector`} onClick={ this.handleClick } value={ tagId } key={ tagId }>
+        <button
+          className={`${className} tag-item selector`}
+          onClick={ this.handleClick }
+          value={ tagId }
+          key={ tagId }>
+
           <p>{ tags[tagId].name }</p>
         </button>
       );

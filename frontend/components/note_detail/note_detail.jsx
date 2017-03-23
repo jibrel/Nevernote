@@ -41,6 +41,10 @@ class NoteDetail extends React.Component {
     this.renderTagSelector = this.renderTagSelector.bind(this);
   }
 
+  componentWillMount() {
+    this.props.fetchNote();
+  }
+
   componentDidMount() {
     this.setEditorState(this.props.currentNote);
   }
@@ -48,6 +52,7 @@ class NoteDetail extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.formType === "edit") {
       if (this.props.currentNote.id !== nextProps.currentNote.id) {
+        this.props.fetchNote();
         this.setEditorState(nextProps.currentNote);
       }
       if (this.props.params.noteId !== nextProps.params.noteId) {
@@ -201,7 +206,7 @@ class NoteDetail extends React.Component {
   renderTagSelector() {
     if (this.state.tagSelectorOpen) {
       return (
-        <TagSelectorContainer onChange={ this.changeTags } currentTags={ this.state.tags } />
+        <TagSelectorContainer onChange={ this.changeTags } />
       );
     }
   }

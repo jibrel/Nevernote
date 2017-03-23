@@ -1,8 +1,8 @@
 import React from 'react';
 
-const NoteIndexHeader = ({ count }) => (
+const NoteIndexHeader = ({ count, header }) => (
   <div className="note-index-header">
-    <h3>NOTES</h3>
+    <h3>{ header }</h3>
     <p>{ count } notes</p>
   </div>
 );
