@@ -20,7 +20,9 @@ class User < ApplicationRecord
 
 	before_validation :ensure_session_token
 
-  has_many :notes
+  has_many :notes,
+    foreign_key: :author_id
+    
   has_many :notebooks
 
   has_many :tags,

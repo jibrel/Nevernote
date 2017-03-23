@@ -20,7 +20,8 @@ class TagIndex extends React.Component {
   }
 
   render() {
-    const tagKeys = Object.keys(this.props.tags);
+    const tags = this.props.tags;
+    const tagKeys = Object.keys(tags);
     // count notes per tag?
 
     const tagItems = tagKeys.map(tagId => (

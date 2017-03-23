@@ -13,18 +13,25 @@ class NotebookSelector extends React.Component {
     const notebooks = this.props.notebooks;
     const notebookKeys = Object.keys(notebooks);
 
-    const notebookItems = notebookKeys.map(notebookId => (
-      <li className="notebook-selector-item" onClick={ this.props.onChange(notebookId) } key={ notebookId }>
-        <div className="notebook-selector-text">
-          <p>{ notebooks[notebookId].title }</p>
-        </div>
-      </li>
-    ));
+    const notebookItems = notebookKeys.map(notebookId => {
+      let className = "";
+      if (notebookId == this.props.currentNotebook) {
+        className = "active-text";
+      }
+
+      return (
+        <li className="notebook-selector-item" onClick={ this.props.onChange(notebookId) } key={ notebookId }>
+          <div className="notebook-selector-text">
+            <p className={ className }>{ notebooks[notebookId].title }</p>
+          </div>
+        </li>
+      );
+    });
 
     return (
-      <ul className="notebook-selector-scroll">
-        <li className="notebook-selector-header">
-          <div className="notebook-header-text">
+      <ul className="selector-scroll">
+        <li className="selector-header">
+          <div className="selector-header-text">
             <p>NOTEBOOKS</p>
           </div>
         </li>

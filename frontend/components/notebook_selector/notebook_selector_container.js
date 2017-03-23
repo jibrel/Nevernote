@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchAllNotebooks: () => dispatch(fetchAllNotebooks()),
-  onChange: ownProps.onChange
+  onChange: ownProps.onChange,
+  currentNotebook: ownProps.currentNotebook
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotebookSelector);

@@ -19,7 +19,7 @@
   padding: 0 10px 0 5px;
 }
 
-.notebook-selector-scroll {
+.selector-scroll {
   position: absolute;
   top: 90px;
   left: 50px;
@@ -32,13 +32,13 @@
   z-index: 50;
 }
 
-.notebook-selector-header {
+.selector-header {
   height: 50px;
   font-family: $sans-serif;
   font-size: 14px;
 }
 
-.notebook-header-text {
+.selector-header-text {
   margin: 0 15px;
   border-bottom: 1px $even-lighter solid;
   height: 100%;
@@ -46,7 +46,7 @@
   color: $light-grey;
 }
 
-.notebook-header-text p {
+.selector-header-text p {
   padding: 23px 0 0 10px;
 }
 

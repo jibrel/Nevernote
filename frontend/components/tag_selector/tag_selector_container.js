@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchAllTags: () => dispatch(fetchAllTags()),
-  onChange: ownProps.onChange
+  onChange: ownProps.onChange,
+  currentTags: ownProps.currentTags
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TagSelector);
