@@ -2,7 +2,7 @@
 
 [Live demo][heroku]
 
-[heroku]: https://infinite-meadow-10972.herokuapp.com
+[heroku]: https://nevernote.herokuapp.com/
 
 Nevernote is a full-stack web application built using Ruby on Rails on the backend, a PostgreSQL database, and React.js on the frontend.  It imitates the basic functionality and appearance of Evernote.
 
