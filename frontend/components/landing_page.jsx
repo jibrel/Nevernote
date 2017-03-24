@@ -30,7 +30,7 @@ const LandingPage = () => (
 
       <Link to="/login"><button className="landing-button white">LOG IN</button></Link>
       <p>or</p>
-      <Link to="/login"><button className="landing-button green">SIGN UP FOR FREE</button></Link>
+      <Link to="/signup"><button className="landing-button green">SIGN UP FOR FREE</button></Link>
     </section>
 
   </div>
