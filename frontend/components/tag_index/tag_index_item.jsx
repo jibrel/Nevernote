@@ -25,7 +25,7 @@ class TagIndexItem extends React.Component {
 
   handleDelete() {
     this.props.deleteTag(this.props.tag.id)
-      .this.props.router.push("/home");
+      .then(() => this.props.router.push("/home"));
   }
 
   renderDeleteConfirmation() {
@@ -57,8 +57,8 @@ class TagIndexItem extends React.Component {
             <div className="tag-item">
               <p>{ tag.name }</p>
             </div>
-            { tools }
           </Link>
+          { tools }
         </li>
 
         { this.renderDeleteConfirmation() }
