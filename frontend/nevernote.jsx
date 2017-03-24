@@ -17,6 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	const root = document.getElementById('root');
 	Modal.setAppElement(document.body);
   ReactDOM.render(<Root store={ store } />, root);
-
-	window.store = store; // remove later!
 });

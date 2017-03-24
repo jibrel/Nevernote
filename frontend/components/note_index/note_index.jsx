@@ -59,6 +59,7 @@ class NoteIndex extends React.Component {
         note={ notes[key] }
         deleteNote={ this.props.deleteNote }
         path={ this.props.location.pathname }
+        router={ this.props.router }
       />
     ));
 
@@ -66,7 +67,6 @@ class NoteIndex extends React.Component {
     if (path.startsWith("/tag/")) {
       const tagId = this.props.params.tagId;
       header = this.props.tags[tagId].name.toUpperCase();
-      debugger;
     }
     if (path.startsWith("/notebook/")) {
       const notebookId = this.props.params.notebookId;

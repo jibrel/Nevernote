@@ -46,8 +46,7 @@ The `noteIndex` component lists all the notes a user has created at the route `"
 
 The note detail component renders two drop-downs on click of the corresponding button, allowing the user to assign the note to a notebook, or attach tags to a note.  Attaching tags is the more complicated of the two because a note `belongs_to` only one notebook, but a note `has_many` tags.
 
-![screenshot][screenshot]
-[screenshot]: http://res.cloudinary.com/dq5kxnx9d/image/upload/v1490373111/Screen_Shot_2017-03-24_at_9.26.28_AM_bheqqv.png "Screenshot"
+![screenshot](http://res.cloudinary.com/dq5kxnx9d/image/upload/v1490373111/Screen_Shot_2017-03-24_at_9.26.28_AM_bheqqv.png)
 
 In the `TagSelector` component, tag id's are stored as an array in a local state.  On clicking a tag item in the dropdown, the local state is updated to either add or remove that tag id.  Then the click handler calls `changeTags`, a method on the `NoteDetail` component, updating it's local state so that it can send the correct array of tag id's back to the database.  `changeTags` only saves the note to the database if you are editing a note.  It waits to submit all note information at once if you are creating a new note.
 
