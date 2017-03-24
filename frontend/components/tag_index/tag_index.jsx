@@ -25,6 +25,7 @@ class TagIndex extends React.Component {
         key={ tagId }
         tag={ this.props.tags[tagId] }
         deleteTag={ this.props.deleteTag }
+        router={ this.props.router }
       />
     ));
 

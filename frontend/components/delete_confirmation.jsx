@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DeleteConfirmation = ({ name, type, handleDelete }) => {
+const DeleteConfirmation = ({ name, type, handleDelete, handleCancel }) => {
   const header = `DELETE ${type.toUpperCase()}`;
 
   return (
@@ -11,11 +11,11 @@ const DeleteConfirmation = ({ name, type, handleDelete }) => {
       <h2 className="confirmation-text">{ `Are you sure you want to delete ${name}?`}</h2>
 
       <div className="new-buttons">
-        <input className="new-button submit" type="submit" value="Delete"></input>
-        <button className="new-button cancel" onClick={ handleDelete }>Cancel</button>
+        <button className="new-button submit" onClick={ handleDelete }>Delete</button>
+        <button className="new-button cancel" onClick={ handleCancel }>Cancel</button>
       </div>
     </div>
   );
-)
+}
 
 export default DeleteConfirmation;
