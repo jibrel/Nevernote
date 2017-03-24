@@ -124,8 +124,8 @@ Notebook.create!(blog);
 Notebook.create!(notes);
 Notebook.create!(programming);
 Notebook.create!(other);
-
-Note.create!(readme);
+# 
+# Note.create!(readme);
 
 Note.create!(thailand);
 Note.create!(europe);
