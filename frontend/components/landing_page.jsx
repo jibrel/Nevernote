@@ -26,7 +26,7 @@ const LandingPage = () => (
 
     <section className="middle-text">
       <h2>Never Forget Anything</h2>
-      <h3>Because elephants don't, so you shouldn't either.</h3>
+      <h3>Because elephants don't so<br/>you shouldn't either.</h3>
 
       <Link to="/login"><button className="landing-button white">LOG IN</button></Link>
       <p>or</p>
