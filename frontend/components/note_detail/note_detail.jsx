@@ -290,8 +290,6 @@ class NoteDetail extends React.Component {
           </div>
         </div>
 
-        { this.logJsonButton() }
-
         <MessageBarContainer />
       </section>
     );
