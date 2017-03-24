@@ -1,27 +1,72 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const NotebookIndexItem = ({ notebook, count, deleteNotebook }) => {
-  const handleDelete = () => deleteNotebook(notebook.id);
+import DeleteConfirmation from '../delete_confirmation.jsx';
 
-  const tools = (
-    <nav className="notebook-index-tools">
-      <i className="fa fa-star-o" aria-hidden="true"></i>
-      <i className="fa fa-trash" onClick={ handleDelete } aria-hidden="true"></i>
-    </nav>
-  );
+class NotebookIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      deleteOpen: false
+    }
+    this.toggleDeletePage = this.toggleDeletePage.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.renderDeleteConfirmation = this.renderDeleteConfirmation.bind(this);
+  }
 
-  return (
-    <li className="notebook-index-item">
-      <Link to={ `/notebook/${notebook.id}` }>
-        { tools }
-        <div className="notebook-index-text">
-          <h5>{ notebook.title }</h5>
-          <p>{ count } notes</p>
-        </div>
-      </Link>
-    </li>
-  );
-};
+  toggleDeletePage() {
+    if (this.state.deleteOpen) {
+      this.setState({ deleteOpen: false });
+    }
+    else {
+      this.setState({ deleteOpen: true });
+    }
+  }
+
+  handleDelete() {
+    this.props.deleteNotebook(this.props.notebook.id)
+      .then(() => this.props.router.push("/home"));
+  }
+
+  renderDeleteConfirmation() {
+    if (this.state.deleteOpen) {
+      return (
+        <DeleteConfirmation
+          name={ this.props.notebook.title }
+          type="notebook"
+          handleDelete={ this.handleDelete }
+          handleCancel={ this.toggleDeletePage }>
+        </DeleteConfirmation>
+      );
+    }
+  }
+
+  render() {
+    const notebook = this.props.notebook;
+    const count = this.props.count;
+    const tools = (
+      <nav className="notebook-index-tools">
+        <i className="fa fa-star-o" aria-hidden="true"></i>
+        <i className="fa fa-trash" onClick={ this.toggleDeletePage } aria-hidden="true"></i>
+      </nav>
+    );
+
+    return (
+      <div>
+        <li className="notebook-index-item">
+          { tools }
+          <Link to={ `/notebook/${notebook.id}` }>
+            <div className="notebook-index-text">
+              <h5>{ notebook.title }</h5>
+              <p>{ count } notes</p>
+            </div>
+          </Link>
+        </li>
+
+        { this.renderDeleteConfirmation() }
+      </div>
+    );
+  }
+}
 
 export default NotebookIndexItem;
