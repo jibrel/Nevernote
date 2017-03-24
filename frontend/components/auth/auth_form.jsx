@@ -73,6 +73,7 @@ class AuthForm extends React.Component {
         <div className="green-bar"></div>
         <div className="background">
           <div className="auth">
+            <img className="logo" src="http://res.cloudinary.com/dq5kxnx9d/image/upload/e_grayscale,o_63,r_5/v1490316135/logo_o2ibft.png" alt="logo"/>
             <h2 className="auth-header">{ header }</h2>
 
             <form className="auth-form" onSubmit={ this.handleSubmit }>
