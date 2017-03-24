@@ -12,6 +12,7 @@ class Sidebar extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.redirect = this.redirect.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.featureMessage = this.featureMessage.bind(this);
   }
 
   toggleModal() {
@@ -40,6 +41,10 @@ class Sidebar extends React.Component {
     ));
   }
 
+  featureMessage() {
+    this.props.receiveErrors(["Feature comming soon."], "main");
+  }
+
   render() {
     const username = this.props.user.username;
 
@@ -47,11 +52,11 @@ class Sidebar extends React.Component {
       <aside className="sidebar">
         <nav>
           <div className="nav-circle" onClick={ this.redirect("/new-note") }><i className="fa fa-plus" aria-hidden="true"></i></div>
-          <div className="nav-circle"><i className="fa fa-search" aria-hidden="true"></i></div>
+          <div className="nav-circle" onClick={ this.featureMessage }><i className="fa fa-search" aria-hidden="true"></i></div>
         </nav>
 
         <nav className="green-nav">
-          <div className="nav-circle-2"><i className="fa fa-star" aria-hidden="true"></i></div>
+          <div className="nav-circle-2" onClick={ this.featureMessage }><i className="fa fa-star" aria-hidden="true"></i></div>
           <div className="nav-circle-2" onClick={ this.redirect("/home") }><i className="fa fa-file-text" aria-hidden="true"></i></div>
           <div className="nav-circle-2" onClick={ this.redirect("/notebooks") }><i className="fa fa-book" aria-hidden="true"></i></div>
           <div className="nav-circle-2" onClick={ this.redirect("/tags") }><i className="fa fa-tag" aria-hidden="true"></i></div>

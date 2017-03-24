@@ -11,10 +11,6 @@ class NotebookIndex extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchAllNotebooks();
-  }
-
   closeModal() {
     this.props.router.push("/home");
   }

@@ -11,10 +11,6 @@ class TagIndex extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchAllTags();
-  }
-
   closeModal() {
     this.props.router.push("/home");
   }

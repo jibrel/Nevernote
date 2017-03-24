@@ -4,8 +4,10 @@ import { Link } from 'react-router';
 const LandingPage = () => (
   <div>
     <div className="landing-header">
-
-      <h1>NEVERNOTE</h1>
+      <div className="header-left">
+        <img className="logo" src="http://res.cloudinary.com/dq5kxnx9d/image/upload/e_grayscale,o_63,r_5/v1490316135/logo_o2ibft.png" alt="logo"/>
+        <h1>NEVERNOTE</h1>
+      </div>
       <nav className="landing-nav">
         <Link to="/login"><p>Sign In</p></Link>
         <Link to="/signup"><p>Create account</p></Link>
@@ -24,7 +26,7 @@ const LandingPage = () => (
 
     <section className="middle-text">
       <h2>Never Forget Anything</h2>
-      <h3>This is a quote about memory.</h3>
+      <h3>Because elephants don't, so you shouldn't either.</h3>
 
       <Link to="/login"><button className="landing-button white">LOG IN</button></Link>
       <p>or</p>

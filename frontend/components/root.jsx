@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import { fetchAllTags } from '../actions/tags_actions.js';
+import { fetchAllNotebooks } from '../actions/notebooks_actions.js';
 
 import LandingPage from './landing_page.jsx';
 import AuthFormContainer from './auth/auth_form_container.js';
@@ -31,6 +32,7 @@ const Root = ({ store }) => {
   const handleHome = (nextState, replace) => {
     ensureLoggedIn(nextState, replace);
     store.dispatch(fetchAllTags());
+    store.dispatch(fetchAllNotebooks());
   }
 
   return (

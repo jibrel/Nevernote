@@ -63,14 +63,15 @@ class NoteIndex extends React.Component {
     ));
 
     let header = "NOTES";
-    // if (path.startsWith("/tag/")) {
-    //   const tagId = this.props.params.tagId;
-    //   header = this.props.tags[tagId].name.toUpperCase();
-    // }
-    // if (path.startsWith("/notebook/")) {
-    //   const notebookId = this.props.params.notebookId;
-    //   header = this.props.notebooks[notebookId].title.toUpperCase();
-    // }
+    if (path.startsWith("/tag/")) {
+      const tagId = this.props.params.tagId;
+      header = this.props.tags[tagId].name.toUpperCase();
+      debugger;
+    }
+    if (path.startsWith("/notebook/")) {
+      const notebookId = this.props.params.notebookId;
+      header = this.props.notebooks[notebookId].title.toUpperCase();
+    }
 
     return (
       <div>

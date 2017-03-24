@@ -3,9 +3,9 @@ import React from 'react';
 import Sidebar from './sidebar.jsx';
 import NoteIndexContainer from '../note_index/note_index_container.js';
 
-const Home = ({ logout, router, currentUser, children }) => (
+const Home = ({ currentUser, logout, receiveErrors, router, children }) => (
   <div>
-    <Sidebar logout={ logout } router={ router } user={ currentUser }/>
+    <Sidebar logout={ logout } receiveErrors={ receiveErrors } user={ currentUser } router={ router } />
     <NoteIndexContainer />
     { children }
   </div>

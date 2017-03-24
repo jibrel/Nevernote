@@ -6,11 +6,24 @@
   background-color: $white;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
 .landing-header h1 {
   color: $green;
   font-family: $serif;
   font-weight: bold;
   font-size: 26px;
+  margin-left: 10px;
 }
 
 .landing-nav {
@@ -49,11 +62,11 @@
 }
 
 .middle-text h2 {
-  font-size: 35px;
+  font-size: 40px;
 }
 
 .middle-text h3 {
-  font-size: 18px;
+  font-size: 22px;
 }
 
 .middle-text p {

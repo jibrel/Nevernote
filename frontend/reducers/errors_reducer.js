@@ -15,7 +15,6 @@ const errorsReducer = (state = nullErrors, action) => {
   switch(action.type) {
     case RECEIVE_ERRORS:
       newState[action.formName] = action.errors
-      console.log(action.errors) // REMOVE LATER!!!
       return newState;
     default:
       return state;

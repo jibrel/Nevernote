@@ -5,10 +5,6 @@ class NotebookSelector extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchAllNotebooks();
-  }
-
   render() {
     const notebooks = this.props.notebooks;
     const notebookKeys = Object.keys(notebooks);
