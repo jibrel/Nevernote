@@ -42,11 +42,17 @@ class NoteDetail extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchNote();
+    if (this.props.formType === "edit") {
+      this.props.fetchNote();
+    }
   }
 
   componentDidMount() {
     this.setEditorState(this.props.currentNote);
+    if (this.props.formType === "new") {
+      this.props.fetchAllNotebooks();
+      this.props.fetchAllTags();
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -77,7 +83,7 @@ class NoteDetail extends React.Component {
       this.setState({ notebookId: note.notebook_id });
     }
     if (note && note.tags) {
-      this.setState({ tags: note.tags }); // this may be wrong!!!
+      this.setState({ tags: note.tags });
     }
   }
 

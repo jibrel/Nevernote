@@ -42,7 +42,7 @@ class Sidebar extends React.Component {
   }
 
   featureMessage() {
-    this.props.receiveErrors(["Feature comming soon."], "main");
+    this.props.receiveErrors(["Feature coming soon."], "main");
   }
 
   render() {
@@ -50,6 +50,8 @@ class Sidebar extends React.Component {
 
     return (
       <aside className="sidebar">
+        <img className="logo" src="http://res.cloudinary.com/dq5kxnx9d/image/upload/e_grayscale,o_63,r_5/v1490316135/logo_o2ibft.png" alt="logo"/>
+
         <nav>
           <div className="nav-circle" onClick={ this.redirect("/new-note") }><i className="fa fa-plus" aria-hidden="true"></i></div>
           <div className="nav-circle" onClick={ this.featureMessage }><i className="fa fa-search" aria-hidden="true"></i></div>
@@ -61,6 +63,7 @@ class Sidebar extends React.Component {
           <div className="nav-circle-2" onClick={ this.redirect("/notebooks") }><i className="fa fa-book" aria-hidden="true"></i></div>
           <div className="nav-circle-2" onClick={ this.redirect("/tags") }><i className="fa fa-tag" aria-hidden="true"></i></div>
         </nav>
+
         <div className="account-square">
           <div className="account-button nav-circle-2" onClick={ this.toggleModal }><i className="fa fa-cog" aria-hidden="true"></i></div>
         </div>

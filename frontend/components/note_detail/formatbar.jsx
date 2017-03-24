@@ -9,7 +9,7 @@ export const styleMap = {
     backgroundColor: 'rgba(0, 0, 0, 0.05)',
     fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
     fontSize: 12,
-    padding: 5,
+    padding: 5
   },
   STRIKETHROUGH: {
     textDecoration: "line-through"
