@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Toolbar = ({ noteId, deleteNote }) => {
-  const handleDelete = () => deleteNote(noteId);
+const Toolbar = ({ noteId, deleteNote, router }) => {
+  const handleDelete = () => {
+    deleteNote(noteId);
+  };
 
   return (
     <nav className="toolbar">

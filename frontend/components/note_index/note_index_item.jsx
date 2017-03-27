@@ -18,9 +18,12 @@ class NoteIndexItem extends React.Component {
 
   toggleDeletePage() {
     if (this.state.deleteOpen) {
-      this.setState({ deleteOpen: false });
+      this.setState({ deleteOpen: false }, () => {
+        this.props.router.push(`/note/${this.props.note.id}`)
+      });
     }
     else {
+      this.props.router.push("/home");
       this.setState({ deleteOpen: true });
     }
   }

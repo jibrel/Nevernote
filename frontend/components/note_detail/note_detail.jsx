@@ -237,6 +237,7 @@ class NoteDetail extends React.Component {
         <Toolbar
           noteId={ this.props.params.noteId }
           deleteNote={ onDelete }
+          router={ this.props.router }
         />
 
         { this.renderButtons(formType) }

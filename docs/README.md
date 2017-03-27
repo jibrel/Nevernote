@@ -1,4 +1,6 @@
-## Heroku and Trello Links:
+# Nevernote
+
+## Heroku and Trello Links
 
 - [Heroku][heroku]
 - [Trello][trello]
@@ -6,8 +8,7 @@
 [heroku]: https://dashboard.heroku.com/
 [trello]: https://trello.com/b/zBj9OpDv/claire-s-evernote-clone
 
-
-## Minimum Viable Product:
+## Minimum Viable Product
 
 This project is a faithful clone of the web version of Evernote, with the following features (see below).  All features will have adequate styling, smooth, bug-free navigaion, and adequate and appropriate seed data to demonstrate the feature.
 
@@ -19,8 +20,7 @@ This project is a faithful clone of the web version of Evernote, with the follow
 6. Tags
 7. Production README
 
-
-## Design Docs:
+## Design Docs
  
 - [Wireframes][wireframes]
 - [React Components][components]
@@ -34,8 +34,7 @@ This project is a faithful clone of the web version of Evernote, with the follow
 [schema]: ./schema.md
 [sample-state]: ./sample-state.md
 
-
-## Implementation Timeline:
+## Implementation Timeline
 
 Phase 1: Front End Authentication (2 days)
 - including styling of login and logout forms
@@ -54,9 +53,10 @@ Phase 4: Rich Text Editing (2 day)
 Phase 5: Tags (1 day)
 - notes can be tagged, can list notes by tag
 
-Bonus Features:
-- search by content
-- note shortcuts
-- reminders
+## Bonus Features
+
+- Search by content
+- Note shortcuts
+- Reminders
 
 

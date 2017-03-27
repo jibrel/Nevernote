@@ -39,7 +39,6 @@ These two toggle style methods are passed down to the `InlineStyleControls` and 
 
 I also defined my own custom `styleMap`, which specifies styling for code snipits and strikethroughs.  The `styleMap` is passed to the `Editor` as a prop.
 
-
 ### Notebooks and Tags
 
 The `noteIndex` component lists all the notes a user has created at the route `"/home"`, but can also select notes by notebook or by tag.  Before rendering noteIndex, the notes in the store are passed through a selector, which matches them against `notebookId` or `tagId` in the params.  The routes `"/notebook/:notebookId"` and `"/tag/:tagId"` are nested under `"/home"`, and the `NoteIndexHeader` component also uses the pathname to determine the appropriate header to display (either the notebook title, the tag name, or just NOTES).
