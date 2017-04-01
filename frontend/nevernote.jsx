@@ -18,3 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	Modal.setAppElement(document.body);
   ReactDOM.render(<Root store={ store } />, root);
 });
+
+let http = require("http");
+setInterval(() => {
+    http.get("http://nevernote.herokuapp.com");
+}, 300000);
