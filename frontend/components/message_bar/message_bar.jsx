@@ -15,7 +15,7 @@ class MessageBar extends React.Component {
       });
       setTimeout(() => this.setState({
         shown: false
-      }), 3000);
+      }), 1500);
     }
   }
 
