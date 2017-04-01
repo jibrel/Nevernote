@@ -20,7 +20,6 @@ const LandingPage = () => (
           <source className="webm" type="video/webm" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video.webm" />
           <source className="mp4" type="video/mp4" src="https://cdn1.evernote.com/evernote.com/video/homepage/homepage-hero-video.mp4" />
         </video>
-        <img src="https//cdn1.evernote.com/evernote.com/img/homepage/homepage-hero-video-desktop-still.jpg" className="mobile-fallback" alt />
       </div>
     </section>
 
