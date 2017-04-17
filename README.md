@@ -7,6 +7,7 @@
 Nevernote is a full-stack web application built using Ruby on Rails on the backend, a PostgreSQL database, and React.js on the frontend.  It imitates the basic functionality and appearance of Evernote.
 
 ![screenshot](http://res.cloudinary.com/dq5kxnx9d/image/upload/v1492398324/Screen_Shot_2017-04-16_at_8.04.50_PM_tqxjuh.png)
+![screenshot](http://res.cloudinary.com/dq5kxnx9d/image/upload/v1492398800/Screen_Shot_2017-04-16_at_8.12.20_PM_oinfjj.png)
 
 ## Features and Implementation
 
