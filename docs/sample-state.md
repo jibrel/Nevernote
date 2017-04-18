@@ -38,6 +38,14 @@
 			author_id: 1
 		}
 	},
+	shortcuts: {
+		1: {
+			id: 1,
+			name: "Name of Note",
+			route: "/note/1",
+			author_id: 1
+		}
+	},
 	currentNote: {
 		id: 1,
 		title: "Javascript",

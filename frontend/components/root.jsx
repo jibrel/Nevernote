@@ -2,13 +2,15 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import { fetchAllTags } from '../actions/tags_actions.js';
+import { fetchAllShortcuts } from '../actions/shortcuts_actions.js';
 import { fetchAllNotebooks } from '../actions/notebooks_actions.js';
+import { fetchAllTags } from '../actions/tags_actions.js';
 
 import LandingPage from './landing_page.jsx';
 import AuthFormContainer from './auth/auth_form_container.js';
 import HomeContainer from './home/home_container.js';
 import NoteDetailContainer from './note_detail/note_detail_container.js';
+import ShortcutIndexContainer from './shortcut_index/shortcut_index_container.js';
 import NotebookIndexContainer from './notebook_index/notebook_index_container.js';
 import TagIndexContainer from './tag_index/tag_index_container.js';
 import NewNoteFormContainer from './new_note_form/new_note_form_container.js';
@@ -31,6 +33,7 @@ const Root = ({ store }) => {
 
   const handleHome = (nextState, replace) => {
     ensureLoggedIn(nextState, replace);
+    store.dispatch(fetchAllShortcuts());
     store.dispatch(fetchAllTags());
     store.dispatch(fetchAllNotebooks());
   }
@@ -46,6 +49,7 @@ const Root = ({ store }) => {
         <Route path="/home" component={ HomeContainer } onEnter={ handleHome }>
           <Route path="/note/:noteId" component={ NoteDetailContainer } onEnter={ ensureLoggedIn } />
 
+          <Route path="/shortcuts" component={ ShortcutIndexContainer } onEnter={ ensureLoggedIn } />
           <Route path="/notebooks" component={ NotebookIndexContainer } onEnter={ ensureLoggedIn } />
           <Route path="/tags" component={ TagIndexContainer } onEnter={ ensureLoggedIn } />
         </Route>

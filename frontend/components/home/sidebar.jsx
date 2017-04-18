@@ -16,6 +16,11 @@ class Sidebar extends React.Component {
   }
 
   toggleModal() {
+    const path = this.props.location.pathname;
+    if (path === "/shortcuts" || path === "/notebooks" || path === "/tags") {
+      this.props.router.push("/home");
+    }
+    
     if (this.state.modalOpen) {
       this.setState({ modalOpen: false });
     }
@@ -58,7 +63,7 @@ class Sidebar extends React.Component {
         </nav>
 
         <nav className="green-nav">
-          <div className="nav-circle-2" onClick={ this.featureMessage }><i className="fa fa-star" aria-hidden="true"></i></div>
+          <div className="nav-circle-2" onClick={ this.redirect("/shortcuts") }><i className="fa fa-star" aria-hidden="true"></i></div>
           <div className="nav-circle-2" onClick={ this.redirect("/home") }><i className="fa fa-file-text" aria-hidden="true"></i></div>
           <div className="nav-circle-2" onClick={ this.redirect("/notebooks") }><i className="fa fa-book" aria-hidden="true"></i></div>
           <div className="nav-circle-2" onClick={ this.redirect("/tags") }><i className="fa fa-tag" aria-hidden="true"></i></div>

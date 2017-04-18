@@ -34,6 +34,7 @@
 **ShortcutIndexContainer**
 - ShortcutIndex
 	+ ShortcutIndexHeader
+  + ShortcutIndexItem
 
 **NotebookIndexContainer**
 - NotebookIndex
