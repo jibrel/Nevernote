@@ -46,3 +46,12 @@
 | :id      | null: false, unique: true |       | integer  |              |
 |	:tag_id  | null: false               | index | integer  | tags table   |
 |	:note_id | null: false               | index | integer  | notes table  |
+
+## Shortcuts:
+
+| columns    | validations               | index | datatype |
+|------------|---------------------------|-------|----------|
+| :id        | null: false, unique: true |       | integer  |
+| :name      | null: false, unique: true |       | string   |
+| :route     | null: false, unique: true |       | string   |
+| :author_id | null: false               | index | integer  |

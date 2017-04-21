@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import ShortcutIndex from './shortcut_index.jsx';
-import { deleteShortcut } from '../../actions/shortcut_actions.js';
+import { deleteShortcut } from '../../actions/shortcuts_actions.js';
 
 const mapStateToProps = (state, ownProps) => ({
   shortcuts: state.shortcuts,

@@ -1,7 +1,7 @@
 import React from 'react';
 import merge from 'lodash/merge';
 
-import { RECEIVE_SHORTCUTS, RECEIVE_SHORTCUT, REMOVE_SHORTCUT } from '../actions/shortcut_actions.js';
+import { RECEIVE_SHORTCUTS, RECEIVE_SHORTCUT, REMOVE_SHORTCUT } from '../actions/shortcuts_actions.js';
 
 const ShortcutReducer = (state = {}, action) => {
   Object.freeze(state);

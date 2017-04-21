@@ -38,3 +38,10 @@
 - `GET /api/tags`
 	+ shows list of all tags
 - `DELETE /api/tags/:id`
+
+### shortcuts
+
+- `POST /api/tags`
+- `GET /api/tags`
+	+ shows list of all shortcuts
+- `DELETE /api/tags/:id`
