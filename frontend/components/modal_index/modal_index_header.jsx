@@ -1,14 +1,12 @@
 import React from 'react';
 
 const ModalIndexHeader = ({ router, indexType }) => {
-  if (indexType === "notebook") {
-    const header = "NOTEBOOKS";
+  let header = "NOTEBOOKS";
+  if (indexType === "tag") {
+    header = "TAGS";
   }
-  else if (indexType === "tag") {
-    const header = "TAGS";
-  }
-  else {
-    const header = "SHORTCUTS";
+  if (indexType === "shortcut") {
+    header = "SHORTCUTS";
   }
 
   const newItem = (e) => {

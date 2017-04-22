@@ -4,7 +4,8 @@ class Api::ShortcutsController < ApplicationController
     if @shortcut.save
       render :show
     else
-      render json: ["Shortcut already exists."], status: 422
+      debugger
+      render json: @shortcut.errors.full_messages, status: 422
     end
   end
 

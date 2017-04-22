@@ -28,7 +28,11 @@ class ModalIndexItem extends React.Component {
     };
     this.props.createShortcut({ shortcut })
       .then(() => this.props.router.push(path))
-      .then(() => this.props.receiveErrors(["Shortcut created."], "main")); /// messages!
+      .then(() => this.props.receiveMessages(["Shortcut created."]))
+      .catch(() => {
+        debugger;
+        this.props.receiveErrors(["Shortcut already exists."], "main")
+      });
   }
 
   toggleDeletePage() {
@@ -96,22 +100,21 @@ class ModalIndexItem extends React.Component {
       </nav>
     );
 
-    const content;
+    let content = (<p>{ name }</p>);
     if (indexType === "notebook") {
       content = (
-        <h5>{ name }</h5>
-        <p>{ count } notes</p>
+        <div>
+          <h5>{ name }</h5>
+          <p>{ count } notes</p>
+        </div>
       );
     }
-    else if (indexType === "tag") {
+    if (indexType === "shortcut") {
       content = (
-        <p>{ name }</p>
-      );
-    }
-    else {
-      content = (
-        <i className="fa fa-file-text-o" aria-hidden="true"></i>
-        <p>{ item.name }</p>
+        <div>
+          <i className="fa fa-file-text-o" aria-hidden="true"></i>
+          <p>{ item.name }</p>
+        </div>
       );
     }
 

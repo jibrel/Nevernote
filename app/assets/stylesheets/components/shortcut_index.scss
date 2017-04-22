@@ -19,7 +19,7 @@
   color: $white;
 }
 
-.shortcut-item {
+.shortcut-index-text {
   margin: 0 10px;
   padding: 10px 0;
   height: 40px;
@@ -28,13 +28,18 @@
   align-items: center;
 }
 
-.shortcut-item .fa-file-text-o {
+.shortcut-index-text div {
+  display: flex;
+  align-items: center;
+}
+
+.shortcut-index-text .fa-file-text-o {
   color: $darkest-grey;
   padding-left: 20px;
   font-size: 16px;
 }
 
-.shortcut-item p {
+.shortcut-index-text p {
   font-family: $serif;
   color: $darkest-grey;
   font-size: 18px;

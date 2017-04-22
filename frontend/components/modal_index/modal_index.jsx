@@ -48,7 +48,7 @@ class ModalIndex extends React.Component {
           router={ this.props.router }
         />
       );
-    )};
+    });
 
     return (
       <Modal

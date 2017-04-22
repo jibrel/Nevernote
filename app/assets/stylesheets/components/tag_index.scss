@@ -12,9 +12,11 @@
   margin: 20px 40px;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
-.tag-item {
+.tag-index-text {
   border: 1px $lightest-grey solid;
   border-radius: 6px;
   padding: 2px 12px;
@@ -35,7 +37,7 @@
   color: $white;
 }
 
-.tag-item:hover {
+.tag-index-text:hover {
   cursor: pointer;
   background-color: $green;
   color: $white;
