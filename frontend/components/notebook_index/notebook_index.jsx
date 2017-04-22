@@ -16,12 +16,12 @@ class NotebookIndex extends React.Component {
   }
 
   render() {
-    const note_keys = Object.keys(this.props.notes);
-    const notebook_keys = Object.keys(this.props.notebooks);
+    const noteKeys = Object.keys(this.props.notes);
+    const notebookKeys = Object.keys(this.props.notebooks);
 
-    const notebook_items = notebook_keys.map(notebookId => {
+    const notebookItems = notebookKeys.map(notebookId => {
       let count = 0;
-      note_keys.forEach(noteId => {
+      noteKeys.forEach(noteId => {
         if (this.props.notes[noteId].notebook_id == notebookId) {
           count++;
         }
@@ -50,7 +50,7 @@ class NotebookIndex extends React.Component {
         <NotebookIndexHeader router={ this.props.router }/>
 
         <ul className="notebook-index-scroll">
-          { notebook_items }
+          { notebookItems }
         </ul>
       </Modal>
     );

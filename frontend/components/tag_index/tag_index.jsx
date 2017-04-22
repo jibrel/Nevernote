@@ -24,6 +24,8 @@ class TagIndex extends React.Component {
       <TagIndexItem
         key={ tagId }
         tag={ this.props.tags[tagId] }
+        createShortcut={ this.props.createShortcut }
+        receiveErrors={ this.props.receiveErrors }
         deleteTag={ this.props.deleteTag }
         router={ this.props.router }
       />

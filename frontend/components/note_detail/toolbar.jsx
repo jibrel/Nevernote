@@ -2,8 +2,8 @@ import React from 'react';
 
 const Toolbar = ({ noteId, createShortcut, deleteNote, router }) => {
   const handleDelete = () => {
-    deleteNote(noteId);
-    router.push("/home");
+    deleteNote(noteId)
+      .then(() => router.push("/home"));
   };
 
   return (

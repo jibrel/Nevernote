@@ -24,6 +24,14 @@
 			}
 		}
 	},
+	shortcuts: {
+		1: {
+			id: 1,
+			name: "Name of Note",
+			route: "/note/1",
+			author_id: 1
+		}
+	},
 	notebooks: {
 		1: {
 			id: 1,
@@ -35,14 +43,6 @@
 		1: {
 			id: 1,
 			name: "Programming",
-			author_id: 1
-		}
-	},
-	shortcuts: {
-		1: {
-			id: 1,
-			name: "Name of Note",
-			route: "/note/1",
 			author_id: 1
 		}
 	},
