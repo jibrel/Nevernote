@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 
 import { RECEIVE_SHORTCUTS, RECEIVE_SHORTCUT, REMOVE_SHORTCUT } from '../actions/shortcuts_actions.js';
 
-const ShortcutReducer = (state = {}, action) => {
+const ShortcutsReducer = (state = {}, action) => {
   Object.freeze(state);
   const newState = merge({}, state);
   switch(action.type) {
@@ -20,4 +20,4 @@ const ShortcutReducer = (state = {}, action) => {
   }
 };
 
-export default ShortcutReducer;
+export default ShortcutsReducer;

@@ -5,6 +5,7 @@ import { fetchNote, updateNote, deleteNote } from '../../actions/notes_actions.j
 import { createShortcut } from '../../actions/shortcuts_actions.js';
 
 const mapStateToProps = (state, ownProps) => {
+  const currentUser = state.currentUser;
   const currentNote = state.notes[ownProps.params.noteId] || { id: 0, title: "", body: "" };
 
   let notebookTitle = "";
@@ -13,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return ({
+    currentUser,
     currentNote,
     notebookTitle,
     formType: 'edit'

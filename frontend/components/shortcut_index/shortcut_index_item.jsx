@@ -8,7 +8,7 @@ class ShortcutIndexItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  this.handleDelete() {
+  handleDelete() {
     this.props.deleteShortcut(this.props.shortcut.id)
       .then(() => this.props.router.push("/home"));
   }

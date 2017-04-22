@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/tags_api_util.js';
+import * as APIUtil from '../util/shortcuts_api_util.js';
 
 export const RECEIVE_SHORTCUTS = "RECEIVE_SHORTCUTS";
 export const RECEIVE_SHORTCUT = "RECEIVE_SHORTCUT";
@@ -30,6 +30,6 @@ export const fetchAllShortcuts = () => dispatch => (
 );
 
 export const deleteShortcut = shortcutId => dispatch => (
-  APIUtil.deleteTag(shortcutId)
-    .then(() => dispatch(removeTag(shortcutId)))
+  APIUtil.deleteShortcut(shortcutId)
+    .then(() => dispatch(removeShortcut(shortcutId)))
 );

@@ -1,1 +1,1 @@
-json.partial! "api/shorcuts/shortcut", shortcut: @shortcut
+json.partial! "api/shortcuts/shortcut", shortcut: @shortcut

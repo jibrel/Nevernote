@@ -36,6 +36,8 @@ class NoteDetail extends React.Component {
     this.handleCancel = this.handleCancel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
+    this.addShortcut = this.addShortcut.bind(this);
+
     this.toggleSelector = this.toggleSelector.bind(this);
     this.renderNotebookSelector = this.renderNotebookSelector.bind(this);
     this.renderTagSelector = this.renderTagSelector.bind(this);
@@ -186,6 +188,15 @@ class NoteDetail extends React.Component {
       .then(() => this.props.router.push("/home"));
   }
 
+  addShortcut() {
+    const shortcut = {
+      name: this.state.title,
+      route: `/note/${this.props.params.noteId}`,
+      author_id: this.props.currentUser.id
+    };
+    this.props.createShortcut({ shortcut });
+  }
+
   toggleSelector(selector) {
     const otherSelector = (selector == "notebookSelectorOpen") ? "tagSelectorOpen" : "notebookSelectorOpen";
     return ((e) => {
@@ -236,6 +247,7 @@ class NoteDetail extends React.Component {
       <section className={ `note-detail-section ${formType}` }>
         <Toolbar
           noteId={ this.props.params.noteId }
+          createShortcut={ this.addShortcut }
           deleteNote={ onDelete }
           router={ this.props.router }
         />
