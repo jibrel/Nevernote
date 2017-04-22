@@ -9,8 +9,7 @@ class ShortcutIndexItem extends React.Component {
   }
 
   handleDelete() {
-    this.props.deleteShortcut(this.props.shortcut.id)
-      .then(() => this.props.router.push("/home"));
+    this.props.deleteShortcut(this.props.shortcut.id);
   }
 
   render() {
@@ -20,6 +19,7 @@ class ShortcutIndexItem extends React.Component {
       <li className="shortcut-index-item">
         <Link to={ shortcut.route }>
           <div className="shortcut-item">
+            <i className="fa fa-file-text-o" aria-hidden="true"></i>
             <p>{ shortcut.name }</p>
           </div>
         </Link>
