@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import NoteIndex from './note_index.jsx';
 import { fetchAllNotes, deleteNote } from '../../actions/notes_actions.js';
 import { createShortcut } from '../../actions/shortcuts_actions.js';
+import { receiveErrors } from '../../actions/errors_actions.js';
 
 const mapStateToProps = (state) => ({
   currentUser: state.currentUser,
@@ -15,7 +16,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchAllNotes: () => dispatch(fetchAllNotes()),
   deleteNote: noteId => dispatch(deleteNote(noteId)),
-  createShortcut: shortcut => dispatch(createShortcut(shortcut))
+  createShortcut: shortcut => dispatch(createShortcut(shortcut)),
+  receiveErrors: (errors, name) => dispatch(receiveErrors(errors, name))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NoteIndex));

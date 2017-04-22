@@ -194,7 +194,8 @@ class NoteDetail extends React.Component {
       route: `/note/${this.props.params.noteId}`,
       author_id: this.props.currentUser.id
     };
-    this.props.createShortcut({ shortcut });
+    this.props.createShortcut({ shortcut })
+      .then(() => this.props.receiveErrors(["Shortcut created."], "main"));
   }
 
   toggleSelector(selector) {

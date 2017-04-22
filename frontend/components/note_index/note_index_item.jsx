@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { Editor, EditorState, ContentState, convertFromRaw, getPlainText } from 'draft-js';
 
 import DeleteConfirmation from '../delete_confirmation.jsx';
+import { toggleStar } from '../../util/star_util.js';
 
 class NoteIndexItem extends React.Component {
   constructor(props) {
@@ -11,9 +12,20 @@ class NoteIndexItem extends React.Component {
     this.state = {
       deleteOpen: false
     }
+    this.addShortcut = this.addShortcut.bind(this);
     this.toggleDeletePage = this.toggleDeletePage.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.renderDeleteConfirmation = this.renderDeleteConfirmation.bind(this);
+  }
+
+  addShortcut() {
+    const shortcut = {
+      name: this.props.note.title,
+      route: `/note/${this.props.note.id}`,
+      author_id: this.props.note.author_id
+    };
+    this.props.createShortcut({ shortcut })
+      .then(() => this.props.receiveErrors(["Shortcut created."], "main"));
   }
 
   toggleDeletePage() {
@@ -54,7 +66,7 @@ class NoteIndexItem extends React.Component {
 
     const tools = (
       <nav className="note-index-tools">
-        <i className="fa fa-star-o" aria-hidden="true"></i>
+        <i className="fa fa-star-o" onClick={ this.addShortcut } onMouseEnter={ toggleStar} onMouseLeave={ toggleStar } aria-hidden="true"></i>
         <i className="fa fa-trash" onClick={ this.toggleDeletePage } aria-hidden="true"></i>
       </nav>
     );

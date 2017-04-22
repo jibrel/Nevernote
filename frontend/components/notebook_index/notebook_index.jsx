@@ -32,7 +32,10 @@ class NotebookIndex extends React.Component {
           key={ notebookId }
           notebook={ this.props.notebooks[notebookId] }
           count={ count }
+          createShortcut={ this.props.createShortcut }
+          receiveErrors={ this.props.receiveErrors }
           deleteNotebook={ this.props.deleteNotebook }
+          router={ this.props.router }
         />
       );
     });

@@ -16,11 +16,12 @@ class Sidebar extends React.Component {
   }
 
   toggleModal() {
-    const path = this.props.location.pathname;
+    debugger;
+    const path = this.props.router.location.pathname;
     if (path === "/shortcuts" || path === "/notebooks" || path === "/tags") {
       this.props.router.push("/home");
     }
-    
+
     if (this.state.modalOpen) {
       this.setState({ modalOpen: false });
     }
