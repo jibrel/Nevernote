@@ -13,6 +13,9 @@ export const styleMap = {
   },
   STRIKETHROUGH: {
     textDecoration: "line-through"
+  },
+  HIGHLIGHT: {
+    backgroundColor: 'rgba(243, 246, 79, 0.5)'
   }
 };
 
@@ -32,7 +35,8 @@ export const INLINE_STYLES = [
   { class: "fa fa-italic", style: 'ITALIC'},
   { class: "fa fa-underline", style: 'UNDERLINE'},
   { class: "fa fa-strikethrough", style: 'STRIKETHROUGH'},
-  { class: "fa fa-code", style: 'CODE'}
+  { class: "fa fa-code", style: 'CODE'},
+  { class: "fa fa-pencil", style: 'HIGHLIGHT'}
 ];
 
 export const InlineStyleControls = ({ editorState, onToggle }) => {
