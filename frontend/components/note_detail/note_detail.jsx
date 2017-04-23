@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw, RichUtils, DefaultDraftBlockRenderMap } from 'draft-js';
+import { Editor, EditorState, ContentState, ContentBlock, convertFromRaw, convertToRaw, RichUtils, DefaultDraftBlockRenderMap } from 'draft-js';
 
 import { blockRenderMap, CheckableListItem, CheckableListItemBlock, CheckableListItemUtils, CHECKABLE_LIST_ITEM } from 'draft-js-checkable-list-item';
-import type ContentBlock from 'draft-js/lib/ContentBlock';
 
 import Toolbar from './toolbar.jsx';
 import { styleMap, blockStyleFn, InlineStyleControls, BlockStyleControls } from './formatbar.jsx';

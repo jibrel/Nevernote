@@ -53,3 +53,13 @@
   padding: 0;
   margin: 0;
 }
+
+.checkable-list-item-block__text {
+  margin-left: 30px;
+}
+
+.checkable-list-item-block__checkbox {
+  position: absolute;
+  margin-top: 2px;
+  width: 100%;
+}

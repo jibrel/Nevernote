@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Editor, EditorState, ContentState, RichUtils } from 'draft-js';
+import { CHECKABLE_LIST_ITEM } from 'draft-js-checkable-list-item';
 
 import StyleButton from './style_button.jsx';
 
@@ -25,20 +26,20 @@ export const blockStyleFn = (contentBlock) => {
       return "ul-block-style";
     case "ordered-list-item":
       return "ol-block-style";
-    case "CHECKABLE_LIST_ITEM":
-      return "CHECKABLE_LIST_ITEM";
+    case CHECKABLE_LIST_ITEM:
+      return CHECKABLE_LIST_ITEM;
     default:
       return null;
   }
 };
 
 export const INLINE_STYLES = [
-  { class: "fa fa-bold", style: 'BOLD'},
-  { class: "fa fa-italic", style: 'ITALIC'},
-  { class: "fa fa-underline", style: 'UNDERLINE'},
-  { class: "fa fa-strikethrough", style: 'STRIKETHROUGH'},
-  { class: "fa fa-code", style: 'CODE'},
-  { class: "fa fa-pencil", style: 'HIGHLIGHT'}
+  { class: "fa fa-bold", style: 'BOLD' },
+  { class: "fa fa-italic", style: 'ITALIC' },
+  { class: "fa fa-underline", style: 'UNDERLINE' },
+  { class: "fa fa-strikethrough", style: 'STRIKETHROUGH' },
+  { class: "fa fa-code", style: 'CODE' },
+  { class: "fa fa-pencil", style: 'HIGHLIGHT' }
 ];
 
 export const InlineStyleControls = ({ editorState, onToggle }) => {
@@ -62,9 +63,9 @@ export const InlineStyleControls = ({ editorState, onToggle }) => {
 };
 
 export const BLOCK_TYPES = [
-  { class: "fa fa-list-ul", style: "unordered-list-item"},
-  { class: "fa fa-list-ol", style: "ordered-list-item"},
-  { class: "fa fa-check-square-o", style: "CHECKABLE_LIST_ITEM"}
+  { class: "fa fa-list-ul", style: "unordered-list-item" },
+  { class: "fa fa-list-ol", style: "ordered-list-item" },
+  { class: "fa fa-check-square-o", style: CHECKABLE_LIST_ITEM }
 ];
 
 export const BlockStyleControls = ({ editorState, onToggle }) => {
