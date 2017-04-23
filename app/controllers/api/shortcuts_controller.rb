@@ -4,7 +4,6 @@ class Api::ShortcutsController < ApplicationController
     if @shortcut.save
       render :show
     else
-      debugger
       render json: @shortcut.errors.full_messages, status: 422
     end
   end

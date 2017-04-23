@@ -4,6 +4,7 @@ import NoteDetail from './note_detail.jsx';
 import { fetchNote, updateNote, deleteNote } from '../../actions/notes_actions.js';
 import { createShortcut } from '../../actions/shortcuts_actions.js';
 import { receiveErrors } from '../../actions/errors_actions.js';
+import { receiveMessages } from '../../actions/messages_actions.js';
 
 const mapStateToProps = (state, ownProps) => {
   const currentUser = state.currentUser;
@@ -27,7 +28,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   updateNote: note => dispatch(updateNote(note)),
   deleteNote: noteId => dispatch(deleteNote(noteId)),
   createShortcut: shortcut => dispatch(createShortcut(shortcut)),
-  receiveErrors: (errors, name) => dispatch(receiveErrors(errors, name))
+  receiveErrors: (errors, name) => dispatch(receiveErrors(errors, name)),
+  receiveMessages: messages => dispatch(receiveMessages(messages))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoteDetail);

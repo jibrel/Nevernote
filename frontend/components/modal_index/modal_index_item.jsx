@@ -28,11 +28,8 @@ class ModalIndexItem extends React.Component {
     };
     this.props.createShortcut({ shortcut })
       .then(() => this.props.router.push(path))
-      .then(() => this.props.receiveMessages(["Shortcut created."]))
-      .catch(() => {
-        debugger;
-        this.props.receiveErrors(["Shortcut already exists."], "main")
-      });
+      .then(() => this.props.receiveMessages([`Shortcut for ${shortcut.name} created.`]))
+      .fail(() => this.props.receiveErrors([`Shortcut for ${shortcut.name} already exists.`], "main"));
   }
 
   toggleDeletePage() {

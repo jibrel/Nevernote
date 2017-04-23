@@ -4,6 +4,7 @@ const Modal = require('react-modal');
 import ModalIndexHeader from './modal_index_header.jsx';
 import ModalIndexItem from './modal_index_item.jsx';
 import { modalStyle } from './modal_style.jsx';
+import MessageBarContainer from '../message_bar/message_bar_container.js';
 
 class ModalIndex extends React.Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class ModalIndex extends React.Component {
           count={ count }
           createShortcut={ this.props.createShortcut }
           receiveErrors={ this.props.receiveErrors }
+          receiveMessages={ this.props.receiveMessages }
           deleteItem={ this.props.deleteItem }
           router={ this.props.router }
         />
@@ -62,6 +64,8 @@ class ModalIndex extends React.Component {
         <ul className={ `${indexType}-index-scroll` }>
           { itemItems }
         </ul>
+
+        <MessageBarContainer />
       </Modal>
     );
   }

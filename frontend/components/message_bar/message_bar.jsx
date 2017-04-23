@@ -4,25 +4,35 @@ class MessageBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      shown: false
+      shown: false,
+      type: null
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
+    if (nextProps.errors.length > 0) {
       this.setState({
-        shown: ((nextProps.errors.length > 0) || (nextProps.messages.length > 0))
+        shown: true,
+        type: "errors"
       });
-      setTimeout(() => this.setState({
-        shown: false
-      }), 1500);
     }
+    else if (nextProps.messages.length > 0) {
+      this.setState({
+        shown: true,
+        type: "messages"
+      });
+    }
+
+    setTimeout(() => this.setState({
+      shown: false
+    }), 1500);
   }
 
   render() {
     if (this.state.shown) {
-      const className = (this.props.errors.length > 0) ? "errors" : "messages";
+      const className = this.state.type;
       const text = (className === "errors") ? this.props.errors[0] : this.props.messages[0];
+      debugger;
 
       return (
         <div className={ `message-bar ${className}` }>

@@ -59,6 +59,7 @@ class NoteIndex extends React.Component {
         note={ notes[key] }
         createShortcut={ this.props.createShortcut }
         receiveErrors={ this.props.receiveErrors }
+        receiveMessages={ this.props.receiveMessages }
         deleteNote={ this.props.deleteNote }
         path={ this.props.location.pathname }
         router={ this.props.router }

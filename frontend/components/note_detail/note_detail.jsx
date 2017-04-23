@@ -195,7 +195,8 @@ class NoteDetail extends React.Component {
       author_id: this.props.currentUser.id
     };
     this.props.createShortcut({ shortcut })
-      .then(() => this.props.receiveErrors(["Shortcut created."], "main"));
+      .then(() => this.props.receiveMessages([`Shortcut for ${shortcut.name} created.`]))
+      .fail(() => this.props.receiveErrors([`Shortcut for ${shortcut.name} already exits.`]));
   }
 
   toggleSelector(selector) {
