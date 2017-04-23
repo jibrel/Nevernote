@@ -46,7 +46,7 @@ class TagSelector extends React.Component {
 
       return (
         <button
-          className={`${className} tag-item selector`}
+          className={`${className} tag-index-text selector`}
           onClick={ this.handleClick }
           value={ tagId }
           key={ tagId }>
