@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw, RichUtils } from 'draft-js';
+import { Editor, EditorState, ContentState, convertFromRaw, convertToRaw, RichUtils, DefaultDraftBlockRenderMap } from 'draft-js';
+
+import { blockRenderMap, CheckableListItem, CheckableListItemBlock, CheckableListItemUtils, CHECKABLE_LIST_ITEM } from 'draft-js-checkable-list-item';
+import type ContentBlock from 'draft-js/lib/ContentBlock';
 
 import Toolbar from './toolbar.jsx';
 import { styleMap, blockStyleFn, InlineStyleControls, BlockStyleControls } from './formatbar.jsx';
@@ -41,6 +44,8 @@ class NoteDetail extends React.Component {
     this.toggleSelector = this.toggleSelector.bind(this);
     this.renderNotebookSelector = this.renderNotebookSelector.bind(this);
     this.renderTagSelector = this.renderTagSelector.bind(this);
+
+    this.blockRendererFn = this.blockRendererFn.bind(this);
   }
 
   componentWillMount() {
@@ -241,6 +246,20 @@ class NoteDetail extends React.Component {
     }
   }
 
+  blockRendererFn(contentBlock) {
+    if (contentBlock.getType() === CHECKABLE_LIST_ITEM) {
+      return {
+        component: CheckableListItem,
+        props: {
+          onChangeChecked: () => this.changeBody(
+            CheckableListItemUtils.toggleChecked(this.state.editorState, contentBlock)
+          ),
+          checked: !!contentBlock.getData().get('checked')
+        }
+      };
+    }
+  }
+
   render() {
     const formType = this.props.formType;
     const onDelete = (formType === "new") ? this.handleCancel : this.props.deleteNote;
@@ -300,6 +319,8 @@ class NoteDetail extends React.Component {
               editorState={ this.state.editorState }
               customStyleMap={ styleMap }
               blockStyleFn={ blockStyleFn }
+              blockRendererFn={ this.blockRendererFn }
+              blockRenderMap={ DefaultDraftBlockRenderMap.merge(blockRenderMap) }
               ref="editor"
             />
           </div>

@@ -25,6 +25,8 @@ export const blockStyleFn = (contentBlock) => {
       return "ul-block-style";
     case "ordered-list-item":
       return "ol-block-style";
+    case "CHECKABLE_LIST_ITEM":
+      return "CHECKABLE_LIST_ITEM";
     default:
       return null;
   }
@@ -61,7 +63,8 @@ export const InlineStyleControls = ({ editorState, onToggle }) => {
 
 export const BLOCK_TYPES = [
   { class: "fa fa-list-ul", style: "unordered-list-item"},
-  { class: "fa fa-list-ol", style: "ordered-list-item"}
+  { class: "fa fa-list-ol", style: "ordered-list-item"},
+  { class: "fa fa-check-square-o", style: "CHECKABLE_LIST_ITEM"}
 ];
 
 export const BlockStyleControls = ({ editorState, onToggle }) => {
