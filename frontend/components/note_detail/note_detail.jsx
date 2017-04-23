@@ -196,7 +196,7 @@ class NoteDetail extends React.Component {
     };
     this.props.createShortcut({ shortcut })
       .then(() => this.props.receiveMessages([`Shortcut for ${shortcut.name} created.`]))
-      .fail(() => this.props.receiveErrors([`Shortcut for ${shortcut.name} already exits.`]));
+      .fail(() => this.props.receiveErrors([`Shortcut for ${shortcut.name} already exits.`], "main"));
   }
 
   toggleSelector(selector) {
@@ -293,7 +293,7 @@ class NoteDetail extends React.Component {
             placeholder="Title your note">
           </input></h2>
 
-          <div onClick={ this.focus }>
+        <div className="focus-area" onClick={ this.focus }>
             <Editor
               onChange={ this.changeBody }
               handleKeyCommand={ this.handleKeyCommand }
@@ -304,6 +304,8 @@ class NoteDetail extends React.Component {
             />
           </div>
         </div>
+
+        { this.logJsonButton() }
 
         <MessageBarContainer />
       </section>

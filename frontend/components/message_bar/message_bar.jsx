@@ -32,7 +32,6 @@ class MessageBar extends React.Component {
     if (this.state.shown) {
       const className = this.state.type;
       const text = (className === "errors") ? this.props.errors[0] : this.props.messages[0];
-      debugger;
 
       return (
         <div className={ `message-bar ${className}` }>

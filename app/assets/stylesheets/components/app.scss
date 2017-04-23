@@ -29,3 +29,11 @@ body {
 .video-frame video {
   width: 100%;
 }
+
+.focus-area {
+  height: 200px;
+}
+
+.focus-area:hover {
+  cursor: text;
+}
