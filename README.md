@@ -93,6 +93,5 @@ json.extract! note, :id, :title, :body, :author_id, :notebook_id, :tag_ids
 ## Future Features
 
 - Search by notebook, tag, or note body text
-- Add shortcuts to notes, notebooks, and tags
 - Embed images and pdf files in notes
 - Additional rich text editing (font, font size, font color, etc.)
