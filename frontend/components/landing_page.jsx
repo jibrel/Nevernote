@@ -5,7 +5,7 @@ const LandingPage = () => (
   <div>
     <div className="landing-header">
       <div className="header-left">
-        <img className="logo" src="http://res.cloudinary.com/dq5kxnx9d/image/upload/e_grayscale,o_63,r_5/v1490316135/logo_o2ibft.png" alt="logo"/>
+        <img className="logo" src="https://res.cloudinary.com/dq5kxnx9d/image/upload/e_grayscale,o_63,r_5/v1490316135/logo_o2ibft.png" alt="logo"/>
         <h1>NEVERNOTE</h1>
       </div>
       <nav className="landing-nav">

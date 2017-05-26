@@ -55,7 +55,7 @@ class Sidebar extends React.Component {
 
     return (
       <aside className="sidebar">
-        <img className="logo" src="http://res.cloudinary.com/dq5kxnx9d/image/upload/e_grayscale,o_63,r_5/v1490316135/logo_o2ibft.png" alt="logo"/>
+        <img className="logo" src="https://res.cloudinary.com/dq5kxnx9d/image/upload/e_grayscale,o_63,r_5/v1490316135/logo_o2ibft.png" alt="logo"/>
 
         <nav>
           <div className="nav-circle" onClick={ this.redirect("/new-note") }><i className="fa fa-plus" aria-hidden="true"></i></div>

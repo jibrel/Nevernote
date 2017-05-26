@@ -5,7 +5,11 @@ class Api::UsersController < ApplicationController
       login!(@user)
       render :show
     else
-      render json: @user.errors.full_messages, status: 422
+      if user_params["password"].length < 6
+        render json: ["Password is too short."], status: 422
+      else
+        render json: @user.errors.full_messages, status: 422
+      end
     end
   end
 
