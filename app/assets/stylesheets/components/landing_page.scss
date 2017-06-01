@@ -105,3 +105,9 @@
 .video.vsc-initialized {
   width: 100%;
 }
+
+@media screen and (max-width: 1027px) {
+    .main-video {
+        width: 200%
+    }
+}

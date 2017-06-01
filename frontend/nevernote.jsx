@@ -22,5 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let http = require("http");
 setInterval(() => {
-    http.get("http://nevernote.herokuapp.com");
+    http.get("https://nevernote.herokuapp.com");
 }, 300000);
